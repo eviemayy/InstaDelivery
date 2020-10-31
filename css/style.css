@@ -62,3 +62,18 @@ h2,h3,h4,h5,h6 {
 .login-button:hover{
     background: lightgray;
 }
+
+/*---------------------------------------
+  NAV BAR              
+-----------------------------------------*/
+
+.topnav {
+    overflow: hidden;
+    background-color: lightgray;
+    margin-bottom: 20px;
+  }
+  
+  .topnav h2 {
+    float: left;
+    height: 50px;
+  }
