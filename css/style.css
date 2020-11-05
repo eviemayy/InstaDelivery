@@ -64,10 +64,6 @@ h2,h3,h4,h5,h6 {
 }
 
 .content-container{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
   padding: 100px;
 }
 
@@ -104,3 +100,67 @@ h2,h3,h4,h5,h6 {
   li a:hover {
     background-color: #111;
   }
+
+/*---------------------------------------
+  CART            
+-----------------------------------------*/
+
+.box,
+.box_2,
+.box_3 {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+#boxes_1::after,
+#boxes_2::after,
+#boxes_3::after,
+#boxes_4::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.containers img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.containers {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#boxes_1 {
+  margin-top: 30px;
+}
+
+/* Download Button */
+.download {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.download button {
+  font-weight: bold;
+}
+
+.search input[type=text] {
+  width: 60%;
+  padding: 10px;
+  border: none;
+  margin-top: 20px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+}
+
+.content-section{
+  border: solid;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: #19191f;
+}
