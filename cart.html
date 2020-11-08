@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Cart - InstaDelivery</title>
 </head>
 
@@ -12,7 +13,7 @@
     <!-- Nav Menu-->
     <ul class="topnav">
             <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
-            <li><a href="cart.html">Shop</a></li>
+            <li><a class="current" href="cart.html">Shop</a></li>
             <li><a href="orders.html">My orders</a></li>
             <li><a href="payment.html">My payment</a></li>
             <li><a href="assignments.html">Deliverer assignments</a></li>
@@ -28,12 +29,17 @@
             <!-- Search Bar -->
             <div class="search">
                     <input type="text" placeholder="Search..">
-                    <button>Go</button>
+                    <button class="btn btn-success">Go</button>
             </div>
+            
+            <br>
+            <button>Add Product</button>
+            <button>Update Product</button>
+            <button>Delete Product</button>
         
 
     <!-- New Releases -->
-    <h1>Results</h1>
+    <!-- <h1>Results</h1> -->
     <section id="boxes_1">
         <div class="containers">
             <div class="box">
@@ -41,28 +47,28 @@
                 <span class="price">$30.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
             <div class="box">
                 <h3 class="shop-title">Banana</h3>
                 <span class="price">$20.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
             <div class="box">
                 <h3 class="shop-title">Bread</h3>
                 <span class="price">$25.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
             <div class="box">
                 <h3 class="shop-title">Chicken</h3>
                 <span class="price">$18.50</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
         </div>
     </section>
@@ -75,28 +81,28 @@
                 <span class="price">$35.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
             <div class="box_2">
                 <h3 class="shop-title">Lettuce</h3>
                 <span class="price">$15.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
             <div class="box_2">
                 <h3 class="shop-title">Grapes</h3>
                 <span class="price">$10.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
             <div class="box_2">
                 <h3 class="shop-title">Eggs</h3>
                 <span class="price">$40.00</span>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.</p>
-                <button class="shop-button">Add To Cart</button>
+                <button class="btn btn-info shop-button">Add To Cart</button>
             </div>
         </div>
     </section>
@@ -127,8 +133,7 @@
 </footer>
 
 
-    <script src="../js/script.js"></script>
-    <script src="../js/cart.js"></script>
+    <script src="js/cart.js"></script>
     <script src="https://kit.fontawesome.com/e0d7e7d4bc.js" crossorigin="anonymous"></script>
 </body>
 
