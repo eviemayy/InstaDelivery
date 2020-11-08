@@ -5,6 +5,7 @@ body {
     background: hsl(145, 42%, 76%);
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    margin: 0;
 }
   
 html, body {
@@ -86,17 +87,20 @@ h2,h3,h4,h5,h6 {
 }
 
 .content-container{
-  padding: 100px;
+  /* Changed from 100px */
+  padding: 50px;
 }
 
 .user-login-input{
-  width: 60%;
+  width: 76%;
   padding: 10px;
   border: none;
   margin-top: 20px;
-  margin-right: 16px;
+  /* margin-right: 16px; */
   font-size: 17px;
   border: 1px solid #ccc;
+  border-radius: 25px;
+  text-align: center;
 }
 
 /*---------------------------------------
@@ -124,14 +128,24 @@ h2,h3,h4,h5,h6 {
   }
 
   .header-logo{
-    font-weight: 700;
-    font-size: larger;
+    /* font-weight: 700;
+    font-size: larger; */
+    font-weight: bold;
+    font-size: 108%;
   }
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
     background-color: #111;
+    padding-bottom: 18px;  /* Might have to remove because spacing looks off */
   }
+
+  /* Style the "active" element to highlight the current page */
+.current {
+  background-color: #2196f3;
+  color: white;
+  padding-bottom: 18px; /* Might have to remove because spacing looks off */
+}
 
 /*---------------------------------------
   CART            
@@ -141,7 +155,7 @@ h2,h3,h4,h5,h6 {
 .box_2,
 .box_3 {
   float: left;
-  width: 25%;
+  width: 25%;  /* Expands the box items on the page*/
   padding: 5px;
 }
 
@@ -154,27 +168,29 @@ h2,h3,h4,h5,h6 {
   display: table;
 }
 
-.containers img {
+/* Currently there aren't any images */
+/* .containers img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
-.containers {
+/* Spacing for the content of the shop items */
+/* .containers {
   margin-left: 20px;
   margin-right: 20px;
-}
+} */
 
 #boxes_1 {
   margin-top: 30px;
 }
 
 /* Download Button */
-.download {
+/* .download {
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
-}
+} */
 
 .download button {
   font-weight: bold;
@@ -195,6 +211,21 @@ h2,h3,h4,h5,h6 {
   padding: 10px;
   border-radius: 10px;
   border-color: #19191f;
+  margin-top: 35px;
+}
+
+
+/*---------------------------------------
+  PAYMENT           
+-----------------------------------------*/
+
+.payment-form {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  /* width: 50%; */
+  text-align: center;
+
 }
 
 /*---------------------------------------
