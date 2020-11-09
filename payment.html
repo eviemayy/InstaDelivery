@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    /> -->
     <title>InstaDelivery</title>
 </head>
 
@@ -25,16 +31,42 @@
 
     <div class="payment-form">
         <form action="">
+            <h2 class="">Enter Your Payment Option</h2>
             <input type="text" id="card-number" name="card-number" placeholder="Card Number"><br>
             <input type="text" id="exp-date" name="exp-date" placeholder="Expiration Date"><br>
             <input type="text" id="sec-code" name="sec-code" placeholder="Security Code"><br>
-            <input type="text" id="holder-name" name="holder-name" placeholder="Card Holder Name"><br>
-            <input type="submit" value="Add Payment">
+            <input type="text" id="holder-name" name="holder-name" placeholder="Card Holder Name"><br><br>
+            <input type="submit" id="payment-button" value="Add Payment">
         </form>
     
+        <br>
         <button class="payment-edit">Edit</button>
         <button class="payment-delete">Delete</button>
     </div>
+
+    <table class="table" style="margin-top: 50px; width: 70%;">
+        <thead class="thead-dark">
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Card Number</th>
+            <td>XXXXXXXXXX1234</td>
+          </tr>
+          <tr>
+            <th scope="row">Expiration Date</th>
+            <td>09/2023</td>
+          </tr>
+          <tr>
+            <th scope="row">Name on Card</th>
+            <td>Larry Davis</td>
+          </tr>
+          <tr>
+            <th scope="row">Security Code</th>
+            <td>XXXXX</td>
+          </tr>
+        </tbody>
+      </table>
+      
     
     
     <footer class="footer">
