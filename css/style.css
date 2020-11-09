@@ -225,8 +225,66 @@ h2,h3,h4,h5,h6 {
   margin-left: auto;
   /* width: 50%; */
   text-align: center;
+  background-color: #f9f9fa;
+  padding: 10px 50px 50px 50px;
 
 }
+
+/*---------------------------------------
+  SIGN UP / PAYMENT         
+-----------------------------------------*/
+.signup-form, .payment-form {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  background-color: #f9f9fa;
+  padding: 10px 50px 50px 50px;
+  border-radius: 25px;
+  height: 60%;
+  width: 50%;
+}
+
+#fname, #lname, #email, #psswrd, #card-number, #exp-date, #sec-code, #holder-name{
+  width: 76%;
+  padding: 10px;
+  border: none;
+  margin-top: 20px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#sign-up-button, #payment-button, .payment-edit, .payment-delete{
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: black;
+  font-size: 75%;
+  font-weight: bold;
+}
+
+#sign-up-button:hover{
+  background: gray;
+  border-color: grey;
+  color: white;
+}
+
+
+/*---------------------------------------
+  ORDERS            
+-----------------------------------------*/
+
+.card{
+  width:70%; 
+  text-align:center;
+  margin-right:auto; 
+  margin-left:auto; 
+  display:block; 
+  margin-bottom: 25px;
+}
+
 
 /*---------------------------------------
   FOOTER             
@@ -235,4 +293,7 @@ h2,h3,h4,h5,h6 {
 .footer{
   background-color: #19191f;
   color: white;
+  /* position: absolute;
+  width: 100%;
+  bottom: 0; */
 }
