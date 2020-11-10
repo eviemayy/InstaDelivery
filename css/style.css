@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500');
 
 body {
-    background: hsl(145, 42%, 76%);
+    background: white;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     margin: 0;
@@ -138,6 +138,7 @@ h2,h3,h4,h5,h6 {
   li a:hover {
     background-color: #111;
     padding-bottom: 18px;  /* Might have to remove because spacing looks off */
+    text-decoration: none;
   }
 
   /* Style the "active" element to highlight the current page */
