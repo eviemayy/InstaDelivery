@@ -129,3 +129,55 @@ VALUES ('Rubeus', 'Hagrid');
 
 INSERT INTO `deliverers` (`firstName`, `lastName`)
 VALUES ('Severus', 'Snape');
+
+-- sample payments
+
+INSERT INTO `payments` (`customerID`, `cardNumber`, `bank`, `ccv`, `expirationDate`)
+VALUES ((SELECT `customerID` FROM `customers` WHERE `firstName` = 'Harry' AND `lastName` = 'Potter'),
+12345678910, 'Gringotts Wizarding Bank', 843, '2022-03-20');
+
+INSERT INTO `payments` (`customerID`, `cardNumber`, `bank`, `ccv`, `expirationDate`)
+VALUES ((SELECT `customerID` FROM `customers` WHERE `firstName` = 'Ron' AND `lastName` = 'Weasley'),
+45678925347, 'Gringotts Wizarding Bank', 799, '2022-04-06');
+
+INSERT INTO `payments` (`customerID`, `cardNumber`, `bank`, `ccv`, `expirationDate`)
+VALUES ((SELECT `customerID` FROM `customers` WHERE `firstName` = 'Hermione' AND `lastName` = 'Granger'),
+12121212121, 'Gringotts Wizarding Bank', 523, '2023-05-14');
+
+-- sample orders
+
+INSERT INTO `orders` (`customerID`, `delivererID`, `dateOrdered`, `deliveryStatus`, `departureTime`, `arrivalTime`)
+VALUES ((SELECT `customerID` FROM `customers` WHERE `firstName` = 'Harry' AND `lastName` = 'Potter'), 
+(SELECT `delivererID` FROM `deliverers` WHERE `firstName` = 'Draco' AND `lastName` = 'Malfoy'),
+'2020-11-13', 'Complete', '04:33:19', '05:02:47');
+
+INSERT INTO `orders` (`customerID`, `delivererID`, `dateOrdered`, `deliveryStatus`, `departureTime`, `arrivalTime`)
+VALUES ((SELECT `customerID` FROM `customers` WHERE `firstName` = 'Ron' AND `lastName` = 'Weasley'), 
+(SELECT `delivererID` FROM `deliverers` WHERE `firstName` = 'Draco' AND `lastName` = 'Malfoy'),
+'2020-11-10', 'Complete', '12:30:22', '01:05:09');
+
+INSERT INTO `orders` (`customerID`, `delivererID`, `dateOrdered`, `deliveryStatus`, `departureTime`, `arrivalTime`)
+VALUES ((SELECT `customerID` FROM `customers` WHERE `firstName` = 'Hermione' AND `lastName` = 'Granger'), 
+(SELECT `delivererID` FROM `deliverers` WHERE `firstName` = 'Severus' AND `lastName` = 'Snape'),
+'2020-11-10', 'Complete', '06:02:19', '06:48:27');
+
+-- sample products_orders
+
+INSERT INTO `products_orders` (`productID`, `orderID`)
+VALUES ((SELECT `productID` FROM `products` WHERE `name` = 'Ice Cream'), 
+(SELECT `orderID` FROM `customers` INNER JOIN `orders` ON orders.customerID = customers.customerID 
+WHERE `firstName` = 'Harry' AND `lastName` = 'Potter'));
+
+INSERT INTO `products_orders` (`productID`, `orderID`)
+VALUES ((SELECT `productID` FROM `products` WHERE `name` = 'Eggs'), 
+(SELECT `orderID` FROM `customers` INNER JOIN `orders` ON orders.customerID = customers.customerID 
+WHERE `firstName` = 'Hermione' AND `lastName` = 'Granger'));
+
+INSERT INTO `products_orders` (`productID`, `orderID`)
+VALUES ((SELECT `productID` FROM `products` WHERE `name` = 'Potato'), 
+(SELECT `orderID` FROM `customers` INNER JOIN `orders` ON orders.customerID = customers.customerID 
+WHERE `firstName` = 'Ron' AND `lastName` = 'Weasley'));
+
+
+
+
