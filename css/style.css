@@ -22,85 +22,18 @@ h2,h3,h4,h5,h6 {
     font-weight: normal;
 }
 
-.login-header{
-    color: #19191f;
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 50px;
-    text-align: center;
-    padding: 50px;
-}
+/*---------------------------------------
+  INDEX.HTML             
+-----------------------------------------*/
 
-.login-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.select-user{
-    display: flex;
-    justify-content: space-between;
-    border: solid;
-    background: #f9f9fa;
-    border-color: #f9f9fa;
-    padding: 10px 50px 50px 50px;
-    height: 50%;
-    width: 40%;
-    border-radius: 25px;
-}
-
-.login-button{
-    border: solid;
-    background: #f9f9fa;
-    border-color: lightgrey;
-    width: 80%;
-    height: 10%;
-    border-radius: 25px;
-    text-align: center;
-    color: #19191f;
-    text-decoration: none;
-}
-
-.new-user{
-  background: lightgray;
-  border: solid;
-  border-color: lightgrey;
-  width: 80%;
-  height: 10%;
-  border-radius: 25px;
-  text-align: center;
-  color: #19191f;
-  text-decoration: none;
-  padding-top: 10px;
-}
-
-.new-user:hover{
-  background: gray;
-  border-color: grey;
-  color: white;
-}
-
-.login-button:hover{
-    background: lightgray;
+.home-page{
+  height: 100%;
+  padding: 50px;
 }
 
 .content-container{
   /* Changed from 100px */
   padding: 50px;
-}
-
-.user-login-input{
-  width: 76%;
-  padding: 10px;
-  border: none;
-  margin-top: 20px;
-  /* margin-right: 16px; */
-  font-size: 17px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  text-align: center;
 }
 
 /*---------------------------------------
@@ -136,6 +69,7 @@ h2,h3,h4,h5,h6 {
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
+    color: white;
     background-color: #111;
     padding-bottom: 18px;  /* Might have to remove because spacing looks off */
     text-decoration: none;
@@ -253,8 +187,8 @@ h2,h3,h4,h5,h6 {
   margin-top: 20px;
   font-size: 17px;
   border: 1px solid #ccc;
-  border-radius: 25px;
-  text-align: center;
+ /* border-radius: 25px; 
+  text-align: center;*/
 }
 
 #sign-up-button, #payment-button, .payment-edit, .payment-delete{
