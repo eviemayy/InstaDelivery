@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>InstaDelivery</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <title>InstaDelivery</title>
-</head>
+  <body>
+    <ul class="topnav">
+      <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
+      <li><a href="cart.html">Shop</a></li>
+      <li><a class="current" href="orders.html">Orders</a></li>
+      <li><a href="payment.html">Payments</a></li>
+      <li><a href="assignments.html">Deliverer Assignments</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
 
-<body>
-  <ul class="topnav">
-    <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
-    <li><a href="cart.html">Shop</a></li>
-    <li><a class="current" href="orders.html">Orders</a></li>
-    <li><a href="payment.html">Payments</a></li>
-    <li><a href="assignments.html">Deliverer Assignments</a></li>
-    <li><a href="signup.html">Sign Up</a></li>
-  </ul>
+    <div class="content-container">
+      <h1>Orders</h1>
+    </div>
 
-  <div class="content-container">
-    <h1>Orders</h1>
-  </div>
-
-  <!-- <div class="orders">
+    <!-- <div class="orders">
         <div class="specific-order">
             <p>Order 345</p>
             <p>1 Apples</p>
@@ -38,23 +41,25 @@
         </div>
     </div> -->
 
-  <div class="card">
-    <h5 class="card-header">Order 345</h5>
-    <div class="card-body">
-      <p>1 Apples</p>
-      <p>3 Bananas</p>
-      <p>6 Grapes</p>
-      <p>Total: $50</p>
-      <p>Deliverer: Chris Jenkins</p>
-      <p>Status: Delivered</p>
-      <button href="#" class="btn btn-primary">Edit Order</button>
-      <button href="#" class="btn btn-danger">Delete Order</button>
+    <div id="products-orders">
+      <div class="card">
+        <h5 class="card-header">Order 345</h5>
+        <div class="card-body">
+          <p>1 Apples</p>
+          <p>3 Bananas</p>
+          <p>6 Grapes</p>
+          <p>Total: $50</p>
+          <p>Deliverer: Chris Jenkins</p>
+          <p>Status: Delivered</p>
+          <button href="#" class="btn btn-primary">Edit Order</button>
+          <button href="#" class="btn btn-danger">Delete Order</button>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <footer class="footer">
-    <p>Copyright &copy; 2020 InstaDelivery</p>
-  </footer>
-</body>
-
+    <footer class="footer">
+      <p>Copyright &copy; 2020 InstaDelivery</p>
+    </footer>
+    <script src="js/products_orders.js"></script>
+  </body>
 </html>

@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  <!-- <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    /> -->
-  <title>InstaDelivery</title>
-</head>
+    />
+    <title>InstaDelivery</title>
+  </head>
 
-<body>
-  <ul class="topnav">
-    <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
-    <li><a href="cart.html">Shop</a></li>
-    <li><a href="orders.html">Orders</a></li>
-    <li><a class="current" href="payment.html">Payments</a></li>
-    <li><a href="assignments.html">Deliverer Assignments</a></li>
-    <li><a href="signup.html">Sign Up</a></li>
-  </ul>
+  <body>
+    <ul class="topnav">
+      <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
+      <li><a href="cart.html">Shop</a></li>
+      <li><a href="orders.html">Orders</a></li>
+      <li><a class="current" href="payment.html">Payments</a></li>
+      <li><a href="assignments.html">Deliverer Assignments</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
 
-  <div class="content-container">
-    <h1>Payment</h1>
-  </div>
+    <div class="content-container">
+      <h1>Payment</h1>
+    </div>
 
-  <div class="payment-form">
-    <form action="">
-      <h2 class="">Enter Your Payment Option</h2>
-      <input type="text" id="card-number" name="card-number" placeholder="Card Number"><br>
-      <input type="text" id="exp-date" name="exp-date" placeholder="Expiration Date"><br>
-      <input type="text" id="sec-code" name="sec-code" placeholder="Security Code"><br>
-      <input type="text" id="holder-name" name="holder-name" placeholder="Card Holder Name"><br><br>
-      <input type="submit" id="payment-button" value="Add Payment">
-    </form>
+    <div class="payment-form">
+      <form action="">
+        <h2 class="">Enter Your Payment Option</h2>
+        <input
+          type="text"
+          id="card-number"
+          name="card-number"
+          placeholder="Card Number"
+        /><br />
+        <input
+          type="text"
+          id="exp-date"
+          name="exp-date"
+          placeholder="Expiration Date"
+        /><br />
+        <input
+          type="text"
+          id="sec-code"
+          name="sec-code"
+          placeholder="Security Code"
+        /><br />
+        <input
+          type="text"
+          id="holder-name"
+          name="holder-name"
+          placeholder="Card Holder Name"
+        /><br /><br />
+        <input type="submit" id="payment-button" value="Add Payment" />
+      </form>
 
-    <br>
-    <button class="payment-edit">Edit</button>
-    <button class="payment-delete">Delete</button>
-  </div>
+      <br />
+      <button class="payment-edit">Edit</button>
+      <button class="payment-delete">Delete</button>
+    </div>
 
-  <table class="table" style="margin-top: 50px; width: 70%;">
+    <!-- <table class="table" style="margin-top: 50px; width: 70%;">
     <thead class="thead-dark">
     </thead>
     <tbody>
@@ -64,13 +83,68 @@
         <td>XXXXX</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 
+    <table
+      class="table"
+      style="
+        margin-top: 40px;
+        margin-bottom: 30px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      "
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Customer ID</th>
+          <th scope="col">Card Number</th>
+          <th scope="col">Bank</th>
+          <th scope="col">CCV</th>
+          <th scope="col">Expiration Date</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+      </tbody>
+    </table>
 
-
-  <footer class="footer">
-    <p>Copyright &copy; 2020 InstaDelivery</p>
-  </footer>
-</body>
-
+    <footer class="footer">
+      <p>Copyright &copy; 2020 InstaDelivery</p>
+    </footer>
+    <script src="js/payment.js"></script>
+  </body>
 </html>

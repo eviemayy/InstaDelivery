@@ -162,13 +162,15 @@ h2,h3,h4,h5,h6 {
   text-align: center;
   background-color: #f9f9fa;
   padding: 10px 50px 50px 50px;
+  border-radius: 25px;
+  width: 50%;
 
 }
 
 /*---------------------------------------
   SIGN UP / PAYMENT         
 -----------------------------------------*/
-.signup-form, .payment-form {
+.signup-form {
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -176,7 +178,7 @@ h2,h3,h4,h5,h6 {
   background-color: #f9f9fa;
   padding: 10px 50px 50px 50px;
   border-radius: 25px;
-  height: 60%;
+  /* height: 60%; */
   width: 50%;
 }
 
@@ -228,7 +230,10 @@ h2,h3,h4,h5,h6 {
 .footer{
   background-color: #19191f;
   color: white;
+  padding: 3px;
+  margin-top: 5%;
   /* position: absolute;
   width: 100%;
   bottom: 0; */
+  
 }
