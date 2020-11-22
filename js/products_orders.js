@@ -1,6 +1,4 @@
-const requestURL = "http://flip2.engr.oregonstate.edu:3892/products_orders";
-const local = "http://localhost:3892/products_orders";
-fetch(local).then((res) => {
+fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
   res.text().then((data) => {
     let product_orderData = JSON.parse(data);
     console.log(product_orderData);
