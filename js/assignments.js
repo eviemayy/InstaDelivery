@@ -1,5 +1,4 @@
-const requestURL = "http://flip2.engr.oregonstate.edu:3892/orders";
-fetch("http://localhost:3892/orders").then((res) => {
+fetch("https://database-api-2.herokuapp.com/orders").then((res) => {
   res.text().then((data) => {
     let orderData = JSON.parse(data);
     console.log(orderData);

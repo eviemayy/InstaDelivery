@@ -1,6 +1,5 @@
 //-----------------CUSTOMERS------------------------------
-const requestURL = "http://flip2.engr.oregonstate.edu:3892/customers";
-fetch("http://localhost:3892/customers").then((res) => {
+fetch("https://database-api-2.herokuapp.com/customers").then((res) => {
   res.text().then((data) => {
     let customerData = JSON.parse(data);
     if (customerData.length > 0) {
@@ -21,8 +20,7 @@ fetch("http://localhost:3892/customers").then((res) => {
 
 
 //-----------------DELIVERERS------------------------------
-const requestURL2 = "http://flip2.engr.oregonstate.edu:3892/deliverers";
-fetch("http://localhost:3892/deliverers").then((res) => {
+fetch("https://database-api-2.herokuapp.com/deliverers").then((res) => {
   res.text().then((data) => {
     let delivererData = JSON.parse(data);
     if (delivererData.length > 0) {
