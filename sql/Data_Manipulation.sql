@@ -109,6 +109,56 @@ VALUES ((SELECT `productID` FROM `products` WHERE `name` = 'Potato'),
 (SELECT `orderID` FROM `customers` INNER JOIN `orders` ON orders.customerID = customers.customerID 
 WHERE `firstName` = 'Ron' AND `lastName` = 'Weasley'));
 
+-- SELECT QUERIES
+-- Select all data, this will need to change to specify the exact attributes
+
+SELECT * FROM `customers`;
+SELECT * FROM  `products`;
+SELECT * FROM  `deliverers`;
+SELECT * FROM  `payments`;
+SELECT * FROM  `orders`;
+SELECT * FROM  `products_orders`;
+
+-- UPDATE QUERIES
+
+-- update order assignment for deliverer
+UPDATE `orders`
+SET
+`delivererID` = NULL
+WHERE `orderID` = $order_id_input;
+
+-- update quantity of products
+UPDATE `products`
+SET
+`quantity` =  $quantity_input
+WHERE `pruductsID` = $product_id_input;
+
+-- update status on order
+UPDATE `orders`
+SET
+`arrivalTime` =  $arrival_time_input,
+`deliveryStatus` = $order_id_input,
+`departureTime` = $departureTime_input
+WHERE `orderID` = $order_id_input;
+
+-- update a payment method
+UPDATE `payments`
+SET
+`cardNumber` =  $arrival_time_input,
+`bank` = $order_id_input,
+`ccv` = $departureTime_input,
+`expirationDate` = $departureTime_input
+WHERE `paymentID` = $payment_id_input;
+
+-- DELETE QUERIES
+
+DELETE FROM `orders` WHERE `orderID`= $order_id_input;
+DELETE FROM `products` WHERE `productID`= $product_id_input;
+DELETE FROM `payments` WHERE `paymentID`= $payment_id_input;
+DELETE FROM `customers` WHERE `customerID`= $customer_id_input;
+DELETE FROM `deliverers` WHERE `delivererID`= $deliverer_id_input;
+
+
 
 
 
