@@ -118,6 +118,21 @@ h2,h3,h4,h5,h6 {
 
 #boxes_1 {
   margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
+  margin: 10px;
+}
+
+.box .shop-button{
+    justify-content: flex-end;
 }
 
 /* Download Button */
