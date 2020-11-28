@@ -114,7 +114,7 @@ function deletePayment(id) {
 
 const myForm = document.getElementById("form-payment");
 myForm.addEventListener("submit", function (e) {
-  //e.preventDefault();
+  e.preventDefault();
 
   let data = {
     customerID: document.getElementById("holder-id").value,
