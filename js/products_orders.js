@@ -11,9 +11,39 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
         temp += `<p><b>Order ID:</b> ${product_order.orderID}</p>`;
         temp += `<p><b>Product ID:</b> ${product_order.productID}</p>`;
         temp += `<button href="#" class="btn btn-primary" style="margin: 5px;">Edit Order</button>`;
-        temp += `<button class="btn btn-danger">Delete</button></div></div>`;
+        temp += `<button class="btn btn-danger" onclick="deleteCustomer(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button></div></div>`;
       });
       document.getElementById("products-orders").innerHTML = temp;
     }
   });
 });
+
+//----------------- DELETE ------------------------------
+
+function deleteCustomer(order, prod) {
+
+  let data = {
+    orderID: order,
+    productID: prod
+  }
+
+  console.log(data);
+
+  fetch("https://database-api-2.herokuapp.com/products_orders", {
+    method: "DELETE",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    response.status
+    response.statusText
+    response.headers
+    response.url
+
+    location.reload();
+    return response.text()
+  }, function (error) {
+    console.log(error);
+  });
+}
