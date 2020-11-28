@@ -13,7 +13,7 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
         temp += `<input type="text" id="order-id" name="order-id" placeholder="Order ID" style="display:none;">`;
         temp += `<input type="text" id="product-id" name="product-id" placeholder="Product ID" style="display:none;"><br style="display:none;">`;
         temp += `<button class="btn btn-primary" onclick=\"editOrder(${product_order.orderID},${product_order.productID})\" style="margin: 5px;">Edit Order</button>`;
-        temp += `<button class="btn btn-danger" onclick="deleteCustomer(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button>`;
+        temp += `<button class="btn btn-danger" onclick="deleteProdOrd(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button>`;
         temp += `<button class="btn btn-primary" style="margin: 5px; display:none;">Update</button></div></div>`;
         // temp += `<button class="btn btn-danger" onclick="deleteCustomer(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button></div></div>`;
       });
