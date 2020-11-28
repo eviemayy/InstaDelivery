@@ -33,7 +33,8 @@ fetch("https://database-api-2.herokuapp.com/deliverers").then((res) => {
         temp += `<th scope=\"row\">${deliverer.delivererID}</th>`;
         temp += "<td>" + deliverer.firstName + "</td>";
         temp += "<td>" + deliverer.lastName + "</td>";
-        temp += `<td><button href="#" class="btn btn-primary" style="margin: 5px;">Update</button></td></tr>`;
+        temp += `<td><button href="#" class="btn btn-primary" style="margin: 5px;">Update</button></td>`;
+        temp += `<td><button class="btn btn-danger" onclick="deleteDeliverer(\'${deliverer.delivererID}\')" style="margin: 5px;">Delete</button></td></tr>`;
       });
       document.getElementById("deliverer-data").innerHTML = temp;
     }
@@ -70,3 +71,29 @@ myForm.addEventListener('submit', function (e) {
     console.log(error);
   })
 });
+
+
+//----------------- DELETE ------------------------------
+
+function deleteDeliverer(id) {
+
+  console.log(id);
+
+  fetch("https://database-api-2.herokuapp.com/deliverers", {
+    method: "DELETE",
+    body: JSON.stringify({ delivererID: id }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    response.status
+    response.statusText
+    response.headers
+    response.url
+
+    location.reload();
+    return response.text()
+  }, function (error) {
+    console.log(error);
+  });
+}
