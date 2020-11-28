@@ -81,7 +81,7 @@ function editOrder(orderID, productID) {
 }
 //----------------- DELETE ------------------------------
 
-function deleteCustomer(order, prod) {
+function deleteProdOrd(order, prod) {
 
   let data = {
     orderID: order,

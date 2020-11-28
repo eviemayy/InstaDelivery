@@ -48,6 +48,8 @@ myForm.addEventListener('submit', function (e) {
     response.statusText
     response.headers
     response.url
+
+    location.reload();
     return response.text()
   }, function (error) {
     console.log(error);
