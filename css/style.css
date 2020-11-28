@@ -197,7 +197,7 @@ h2,h3,h4,h5,h6 {
   width: 50%;
 }
 
-#fname, #lname, #email, #psswrd, #card-number, #exp-date, #sec-code, #holder-name{
+#fname, #lname, #email, #psswrd, #address, #name, #description, #price, #quantity, #card-number, #exp-date, #sec-code, #holder-name{
   width: 76%;
   padding: 10px;
   border: none;
@@ -207,6 +207,7 @@ h2,h3,h4,h5,h6 {
  /* border-radius: 25px; 
   text-align: center;*/
 }
+
 
 #sign-up-button, #payment-button, .payment-edit, .payment-delete{
   background-color: lightgray;

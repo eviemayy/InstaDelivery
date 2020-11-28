@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <title>InstaDelivery</title>
+</head>
+
+<body>
+    <ul class="topnav">
+        <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
+        <li><a href="cart.html">Shop</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="payment.html">Payments</a></li>
+        <li><a href="assignments.html">Manage Deliverers</a></li>
+        <li><a class="current" href="signup.html">Manage Customer</a></li>
+    </ul>
+
+    <br><br>
+
+    <form action="" class="signup-form" id="my-form" method="post">
+        <h2 class="">Add New Product</h2>
+        <input type="text" id="name" name="name" placeholder="Product Name"><br>
+        <input type="text" id="description" name="description" placeholder="Description"><br>
+        <input type="text" id="price" name="price" placeholder="Price"><br>
+        <input type="text" id="quantity" name="quantity" placeholder="Amount"><br><br>
+        <input type="submit" id="sign-up-button" value="Add Product">
+    </form>
+
+    <footer class="footer">
+        <p>Copyright &copy; 2020 InstaDelivery</p>
+    </footer>
+    <script src="js/addProduct.js"></script>
+</body>
+
+</html>
