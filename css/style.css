@@ -197,7 +197,7 @@ h2,h3,h4,h5,h6 {
   width: 50%;
 }
 
-#fname, #lname, #email, #psswrd, #card-number, #exp-date, #sec-code, #holder-name{
+#fname, #lname, #email, #psswrd, #card-number, #exp-date, #sec-code, #holder-id, #card-bank, #payment-id{
   width: 76%;
   padding: 10px;
   border: none;

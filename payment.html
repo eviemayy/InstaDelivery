@@ -27,9 +27,16 @@
       <h1>Payment</h1>
     </div>
 
-    <div class="payment-form">
+    <div class="payment-form" id="form-payment">
       <form action="">
         <h2 class="">Enter Your Payment Option</h2>
+        <input
+          style="display:none;"
+          type="text"
+          id="payment-id"
+          name="payment-id"
+          placeholder="Payment ID"
+        /><br />
         <input
           type="text"
           id="card-number"
@@ -50,16 +57,22 @@
         /><br />
         <input
           type="text"
-          id="holder-name"
-          name="holder-name"
-          placeholder="Card Holder Name"
+          id="holder-id"
+          name="holder-id"
+          placeholder="Card Holder ID"
+        /><br />
+        <input
+          type="text"
+          id="card-bank"
+          name="card-bank"
+          placeholder="Bank"
         /><br /><br />
         <input type="submit" id="payment-button" value="Add Payment" />
       </form>
 
       <br />
-      <button class="payment-edit">Edit</button>
-      <button class="payment-delete">Delete</button>
+      <button class="payment-edit" onclick="updatePayment()">Update</button>
+      <!-- <button class="payment-delete" onclick="deletePayment()">Delete</button> -->
     </div>
 
     <!-- <table class="table" style="margin-top: 50px; width: 70%;">
@@ -87,6 +100,7 @@
 
     <table
       class="table"
+      id="payment-table"
       style="
         margin-top: 40px;
         margin-bottom: 30px;
