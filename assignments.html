@@ -16,8 +16,8 @@
         <li><a href="cart.html">Shop</a></li>
         <li><a href="orders.html">Orders</a></li>
         <li><a href="payment.html">Payments</a></li>
-        <li><a class="current" href="assignments.html">Deliverer Assignments</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
+        <li><a class="current" href="assignments.html">Manage Deliverers</a></li>
+        <li><a href="signup.html">Manage Customers</a></li>
     </ul>
 
     <div class="content-container">
@@ -26,7 +26,6 @@
             <input type="text" placeholder="Search..">
             <button class="btn btn-success">Go</button>
         </div>
-        <button style="margin: 10px" class="btn btn-primary">Assign an Order</button>
     </div>
 
 
@@ -55,7 +54,55 @@
             </div>
         </div>
     </div>
-    
+
+    <form action="" class="signup-form" id="my-form" method="post">
+        <h2 class="">Register New Deliverer</h2>
+        <input type="text" id="fname" name="fname" placeholder="First Name"><br>
+        <input type="text" id="lname" name="lname" placeholder="Last Name"><br><br>
+        <input type="submit" id="sign-up-button" value="Add User">
+    </form>
+
+    <h3 style="text-align: center; margin-top: 20px;">Deliverers</h3>
+    <table class="table" style="
+        margin-top: 20px;
+        margin-bottom: 30px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Update</th>
+            </tr>
+        </thead>
+        <tbody id="deliverer-data">
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+            </tr>
+        </tbody>
+    </table>
+
 
     <footer class="footer">
         <p>Copyright &copy; 2020 InstaDelivery</p>
