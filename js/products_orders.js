@@ -13,14 +13,16 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
         temp += `<input type="text" id="order-id" name="order-id" placeholder="Order ID" style="display:none;">`;
         temp += `<input type="text" id="product-id" name="product-id" placeholder="Product ID" style="display:none;"><br style="display:none;">`;
         temp += `<button class="btn btn-primary" onclick=\"editOrder(${product_order.orderID},${product_order.productID})\" style="margin: 5px;">Edit Order</button>`;
-        temp += `<button class="btn btn-danger">Delete</button>`;
+        temp += `<button class="btn btn-danger" onclick="deleteCustomer(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button>`;
         temp += `<button class="btn btn-primary" style="margin: 5px; display:none;">Update</button></div></div>`;
+        // temp += `<button class="btn btn-danger" onclick="deleteCustomer(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button></div></div>`;
       });
       document.getElementById("products-orders").innerHTML = temp;
     }
   });
 });
 
+//-----------UPDATE--------------------------------------
 function editOrder(orderID, productID) {
   let cards = document.getElementsByClassName("card-body");
   for (var i = 0; i < cards.length; i++) {
@@ -76,4 +78,33 @@ function editOrder(orderID, productID) {
       });
     }
   }
+}
+//----------------- DELETE ------------------------------
+
+function deleteCustomer(order, prod) {
+
+  let data = {
+    orderID: order,
+    productID: prod
+  }
+
+  console.log(data);
+
+  fetch("https://database-api-2.herokuapp.com/products_orders", {
+    method: "DELETE",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    response.status
+    response.statusText
+    response.headers
+    response.url
+
+    location.reload();
+    return response.text()
+  }, function (error) {
+    console.log(error);
+  });
 }
