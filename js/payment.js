@@ -11,8 +11,8 @@ fetch("https://database-api-2.herokuapp.com/payments").then((res) => {
         temp += "<td>" + payment.bank + "</td>";
         temp += "<td>" + payment.ccv + "</td>";
         temp += "<td>" + payment.expirationDate + "</td>";
-        temp += `<td><button class=\"payment-deleting\" onclick=\"deletePayment(${payment.paymentID})\">Delete</button></td>`;
-        temp += `<td><button class=\"payment-updating\" onclick=\"editPayment(${payment.paymentID})\">Edit</button></td></tr>`;
+        temp += `<td><button class=\"payment-deleting btn btn-danger\" onclick=\"deletePayment(${payment.paymentID})\">Delete</button></td>`;
+        temp += `<td><button class=\"payment-updating btn btn-primary\" onclick=\"editPayment(${payment.paymentID})\">Edit</button></td></tr>`;
       });
       document.getElementById("data").innerHTML = temp;
     }
@@ -72,7 +72,6 @@ function editPayment(id) {
         console.log(currentRow);
         console.log("Security Code", currentRow.cells[4].innerHTML);
         console.log("Checking", col.innerHTML);
-        //currentRow.cells[4].setAttribute("style", "display:none;");
         
         document.getElementById('sec-code').value = row.cells[4].innerHTML;
         document.getElementById('card-number').value = row.cells[2].innerHTML;

@@ -8,7 +8,7 @@ fetch("https://database-api-2.herokuapp.com/products").then((res) => {
                 temp += '<div class="box">';
                 temp += `<h3 class="shop-title">${product.name}</h3>`;
                 temp += `<span class="price">$${product.price}</span>`;
-                temp += `<p>${product.description}</p>`;
+                temp += `<p class="description">${product.description}</p>`;
                 temp += `<button class="btn btn-info shop-button">Add To Cart</button>`;
                 temp += '</div>';
             });
@@ -16,3 +16,4 @@ fetch("https://database-api-2.herokuapp.com/products").then((res) => {
         }
     });
 });
+

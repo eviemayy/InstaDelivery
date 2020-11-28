@@ -10,6 +10,7 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
         temp += `<div class="card-body">`;
         temp += `<p><b>Order ID:</b> ${product_order.orderID}</p>`;
         temp += `<p><b>Product ID:</b> ${product_order.productID}</p>`;
+        temp += `<button href="#" class="btn btn-primary" style="margin: 5px;">Edit Order</button>`;
         temp += `<button class="btn btn-danger">Delete</button></div></div>`;
       });
       document.getElementById("products-orders").innerHTML = temp;
