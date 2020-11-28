@@ -15,7 +15,7 @@ fetch("https://database-api-2.herokuapp.com/orders").then((res) => {
         temp += `<p><b>Delivery Status:</b> ${order.deliveryStatus}</p>`;
         temp += `<p><b>Departure Time:</b> ${order.departureTime}</p>`;
         temp += `<p><b>Arrival Time:</b> ${order.arrivalTime}</p>`;
-        temp += `<button class="btn btn-danger">Delete</button></div></div>`;
+        temp += `<button class="btn btn-danger" onclick="deleteOrder(\'${order.orderID}\')">Delete</button></div></div>`;
       });
       document.getElementById("all-orders").innerHTML = temp;
     }
@@ -66,6 +66,8 @@ myForm.addEventListener('submit', function (e) {
     response.statusText
     response.headers
     response.url
+
+    location.reload();
     return response.text()
   }, function (error) {
     console.log(error);
@@ -73,7 +75,7 @@ myForm.addEventListener('submit', function (e) {
 });
 
 
-//----------------- DELETE ------------------------------
+//----------------- DELETE DELIVERER ------------------------------
 
 function deleteDeliverer(id) {
 
@@ -96,4 +98,31 @@ function deleteDeliverer(id) {
   }, function (error) {
     console.log(error);
   });
+}
+
+//----------------- DELETE ORDER ------------------------------
+
+function deleteOrder(id) {
+  console.log("Delete", id);
+
+  fetch("https://database-api-2.herokuapp.com/orders", {
+    method: "DELETE",
+    body: JSON.stringify({ orderID: id }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(
+    function (response) {
+      response.status; //=> number 100–599
+      response.statusText; //=> String
+      response.headers; //=> Headers
+      response.url; //=> String
+
+
+      return response.text();
+    },
+    function (error) {
+      console.log(error);
+    }
+  );
 }

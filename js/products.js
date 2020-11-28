@@ -10,7 +10,7 @@ fetch("https://database-api-2.herokuapp.com/products").then((res) => {
                 temp += `<span class="price">$${product.price}</span>`;
                 temp += `<p class="description">${product.description}</p>`;
                 temp += `<button style="margin-bottom: 5px;" class="btn btn-info shop-button">Add To Cart</button>`;
-                temp += `<button class="btn btn-danger" onclick="deleteDeliverer(\'${product.productID}\')">Delete Product</button>`;
+                temp += `<button class="btn btn-danger" onclick="deleteProduct(\'${product.productID}\')">Delete Product</button>`;
                 temp += '</div>';
             });
             document.getElementById("boxes_1").innerHTML = temp;
@@ -20,7 +20,7 @@ fetch("https://database-api-2.herokuapp.com/products").then((res) => {
 
 //----------------- DELETE ------------------------------
 
-function deleteDeliverer(id) {
+function deleteProduct(id) {
 
     console.log(id);
 

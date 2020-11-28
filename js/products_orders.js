@@ -11,7 +11,7 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
         temp += `<p><b>Order ID:</b> ${product_order.orderID}</p>`;
         temp += `<p><b>Product ID:</b> ${product_order.productID}</p>`;
         temp += `<button href="#" class="btn btn-primary" style="margin: 5px;">Edit Order</button>`;
-        temp += `<button class="btn btn-danger" onclick="deleteCustomer(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button></div></div>`;
+        temp += `<button class="btn btn-danger" onclick="deleteProdOrd(\'${product_order.orderID}\',\'${product_order.productID}\')">Delete</button></div></div>`;
       });
       document.getElementById("products-orders").innerHTML = temp;
     }
@@ -20,7 +20,7 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
 
 //----------------- DELETE ------------------------------
 
-function deleteCustomer(order, prod) {
+function deleteProdOrd(order, prod) {
 
   let data = {
     orderID: order,
