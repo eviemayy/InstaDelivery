@@ -20,24 +20,53 @@
     <li><a href="signup.html">Manage Customers</a></li>
   </ul>
 
-  <div class="content-container">
-    <h1>Payment</h1>
-  </div>
+    <div class="payment-form" id="form-payment">
+      <form action="">
+        <h2 class="">Enter Your Payment Option</h2>
+        <input
+          style="display:none;"
+          type="text"
+          id="payment-id"
+          name="payment-id"
+          placeholder="Payment ID"
+        /><br />
+        <input
+          type="text"
+          id="card-number"
+          name="card-number"
+          placeholder="Card Number"
+        /><br />
+        <input
+          type="text"
+          id="exp-date"
+          name="exp-date"
+          placeholder="Expiration Date"
+        /><br />
+        <input
+          type="text"
+          id="sec-code"
+          name="sec-code"
+          placeholder="Security Code"
+        /><br />
+        <input
+          type="text"
+          id="holder-id"
+          name="holder-id"
+          placeholder="Card Holder ID"
+        /><br />
+        <input
+          type="text"
+          id="card-bank"
+          name="card-bank"
+          placeholder="Bank"
+        /><br /><br />
+        <input type="submit" id="payment-button" value="Add Payment" />
+      </form>
 
-  <div class="payment-form">
-    <form action="">
-      <h2 class="">Enter Your Payment Option</h2>
-      <input type="text" id="card-number" name="card-number" placeholder="Card Number" /><br />
-      <input type="text" id="exp-date" name="exp-date" placeholder="Expiration Date" /><br />
-      <input type="text" id="sec-code" name="sec-code" placeholder="Security Code" /><br />
-      <input type="text" id="holder-name" name="holder-name" placeholder="Card Holder Name" /><br /><br />
-      <input type="submit" id="payment-button" value="Add Payment" />
-    </form>
-
-    <br />
-    <button class="payment-edit">Edit</button>
-    <button class="payment-delete">Delete</button>
-  </div>
+      <br />
+      <button class="payment-edit btn btn-success" onclick="updatePayment()">Update</button>
+      <!-- <button class="payment-delete" onclick="deletePayment()">Delete</button> -->
+    </div>
 
   <!-- <table class="table" style="margin-top: 50px; width: 70%;">
     <thead class="thead-dark">
@@ -62,7 +91,7 @@
     </tbody>
   </table> -->
 
-  <table class="table" style="
+  <table class="table" id="payment-table" style="
         margin-top: 40px;
         margin-bottom: 30px;
         width: 70%;
@@ -78,6 +107,8 @@
         <th scope="col">Bank</th>
         <th scope="col">CCV</th>
         <th scope="col">Expiration Date</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
       </tr>
     </thead>
     <tbody id="data">
