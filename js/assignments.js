@@ -11,7 +11,7 @@ fetch("https://database-api-2.herokuapp.com/orders").then((res) => {
         temp += `<div class="card-body">`;
         temp += `<p><b>Customer ID:</b> ${order.customerID}</p>`;
         temp += `<p><b>Deliverer ID:</b> ${order.delivererID}</p>`;
-        temp += `<p><b>Date Ordered:</b> ${order.dateOrdered}</p>`;
+        temp += `<p><b>Date Ordered:</b> ${order.dateOrdered.substring(0,10)}</p>`;
         temp += `<p><b>Delivery Status:</b> ${order.deliveryStatus}</p>`;
         temp += `<p><b>Departure Time:</b> ${order.departureTime}</p>`;
         temp += `<p><b>Arrival Time:</b> ${order.arrivalTime}</p>`;
