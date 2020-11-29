@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <title>InstaDelivery</title>
+</head>
+
+<body>
+    <ul class="topnav">
+        <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
+        <li><a href="cart.html">Products</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="payment.html">Payments</a></li>
+        <li><a href="assignments.html">Manage Deliverers</a></li>
+        <li><a href="signup.html">Manage Customers</a></li>
+    </ul>
+
+    <br><br>
+
+    <form action="" class="signup-form" id="my-form" method="post">
+        <h2 class="">Add New Order</h2>
+        <br>
+        <label for="customer_id" id="time_label">Choose a Customer:</label><br>
+        <select id="customer_id_options" name="customerID">
+            <!-- Content goes here -->
+        </select><br>
+        <label for="deliverer_id" id="time_label">Choose a Deliverer:</label><br>
+        <select id="deliverer_id_options" name="delivererID">
+            <!-- Content goes here -->
+        </select><br>
+        <input style="display:none;" type="text" id="deliverer-id" name="deliverer-id" placeholder="Deliverer ID" /><br>
+        <label for="date" id="time_label">Date Ordered:</label><br>
+        <input type="date" id="date" name="date" placeholder="Data Ordered"><br>
+        <label for="status" id="time_label">Delivery Status:</label><br>
+        <input type="text" id="status" name="status" placeholder="Delivery Status"><br>
+        <label for="dTime" id="time_label">Departure Time:</label><br>
+        <input type="time" id="dTime" name="dTime" placeholder="Departure Time"><br>
+        <label for="aTime" id="time_label">Arrival Time:</label><br>
+        <input type="time" id="aTime" name="aTime" placeholder="Arrival Time"><br><br>
+        <input type="submit" id="sign-up-button" value="Add Order">
+    </form>
+
+
+    <footer class="footer">
+        <p>Copyright &copy; 2020 InstaDelivery</p>
+    </footer>
+    <script src="js/addOrder.js"></script>
+</body>
+
+</html>

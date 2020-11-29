@@ -5,7 +5,6 @@ myForm.addEventListener('submit', function (e) {
 
     e.preventDefault();
 
-    name, description, price, quantity
     let data = {
         name: document.getElementById('name').value,
         description: document.getElementById('description').value,
@@ -14,6 +13,7 @@ myForm.addEventListener('submit', function (e) {
     }
 
     console.log(data);
+    alert("The new product has been added!");
 
     fetch("https://database-api-2.herokuapp.com/products", {
         method: "POST",
@@ -26,7 +26,7 @@ myForm.addEventListener('submit', function (e) {
         response.statusText
         response.headers
         response.url
-        location.href="cart.html";
+        location.href = "cart.html";
         return response.text()
     }, function (error) {
         console.log(error);
