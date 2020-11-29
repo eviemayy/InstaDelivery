@@ -22,7 +22,7 @@ fetch("https://database-api-2.herokuapp.com/payments").then((res) => {
 function updatePayment(){
 
   if(document.getElementById("payment-id").value == ""){
-    alert("Payment ID Needed!")
+    alert("Payment ID Needed! Press an \"Edit\" button to populate fields.")
     return;
   }
 
@@ -112,6 +112,7 @@ function deletePayment(id) {
   );
 }
 
+//---------------POST-----------------
 const myForm = document.getElementById("form-payment");
 myForm.addEventListener("submit", function (e) {
   e.preventDefault();

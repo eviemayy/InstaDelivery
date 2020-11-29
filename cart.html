@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <title>Cart - InstaDelivery</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Nav Menu-->
     <ul class="topnav">
-        <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
-        <li><a class="current" href="cart.html">Shop</a></li>
-        <li><a href="orders.html">Orders</a></li>
-        <li><a href="payment.html">Payments</a></li>
-        <li><a href="assignments.html">Manage Deliverers</a></li>
-        <li><a href="signup.html">Manage Customers</a></li>
+      <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
+      <li><a class="current" href="cart.html">Shop</a></li>
+      <li><a href="orders.html">Orders</a></li>
+      <li><a href="payment.html">Payments</a></li>
+      <li><a href="assignments.html">Manage Deliverers</a></li>
+      <li><a href="signup.html">Manage Customers</a></li>
     </ul>
 
     <div class="content-container">
+      <h1>Cart</h1>
 
-        <h1>Cart</h1>
+      <!-- Search Bar -->
+      <div class="search">
+        <input type="text" placeholder="Search.." />
+        <button class="btn btn-success">Go</button>
+      </div>
 
-        <!-- Search Bar -->
-        <div class="search">
-            <input type="text" placeholder="Search..">
-            <button class="btn btn-success">Go</button>
-        </div>
+      <br />
+      <button
+        onclick="location.href = 'addProduct.html';"
+        class="btn btn-primary"
+      >
+        Add Product
+      </button>
+      <!-- <button class="btn btn-primary">Update Product</button> -->
 
-        <br>
-        <button onclick="location.href = 'addProduct.html';" class="btn btn-primary">Add Product</button>
-        <button class="btn btn-primary">Update Product</button>
+      <!-- Product list -->
+      <section id="boxes_1">
+        <div class="containers"></div>
+        <!-- Content -->
+        <!-- </div> -->
+      </section>
 
-
-        <!-- Product list -->
-        <section id="boxes_1">
-            <div class="containers"></div>
-            <!-- Content -->
-    </div>
-    </section>
-
-
-
-    <!-- CART -->
-    <section class="container content-section">
+      <!-- CART -->
+      <section class="container content-section" style="display:none;">
         <h2 class="section-header">CART</h2>
         <div class="cart-row">
             <span class="cart-item cart-header cart-column"></span>
@@ -60,18 +64,18 @@
             <span class="cart-total-price">$0</span>
         </div>
         <button class="btn btn-primary btn-purchase" type="button">Place Order</button>
-    </section>
-
+    </section> 
     </div>
 
-
     <footer class="footer">
-        <p>Copyright &copy; 2020 InstaDelivery</p>
+      <p>Copyright &copy; 2020 InstaDelivery</p>
     </footer>
 
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
-    <script src="https://kit.fontawesome.com/e0d7e7d4bc.js" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://kit.fontawesome.com/e0d7e7d4bc.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
