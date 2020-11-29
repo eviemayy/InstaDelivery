@@ -13,60 +13,29 @@
 <body>
   <ul class="topnav">
     <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
-    <li><a href="cart.html">Shop</a></li>
+    <li><a href="cart.html">Products</a></li>
     <li><a href="orders.html">Orders</a></li>
     <li><a class="current" href="payment.html">Payments</a></li>
     <li><a href="assignments.html">Manage Deliverers</a></li>
     <li><a href="signup.html">Manage Customers</a></li>
   </ul>
 
-    <div class="payment-form" id="form-payment">
-      <form action="">
-        <h2 class="">Enter Your Payment Option</h2>
-        <input
-          style="display:none;"
-          type="text"
-          id="payment-id"
-          name="payment-id"
-          placeholder="Payment ID"
-        /><br />
-        <input
-          type="text"
-          id="card-number"
-          name="card-number"
-          placeholder="Card Number"
-        /><br />
-        <input
-          type="text"
-          id="exp-date"
-          name="exp-date"
-          placeholder="Expiration Date YYYY-MM-DD"
-        /><br />
-        <input
-          type="text"
-          id="sec-code"
-          name="sec-code"
-          placeholder="Security Code"
-        /><br />
-        <input
-          type="text"
-          id="holder-id"
-          name="holder-id"
-          placeholder="Card Holder ID"
-        /><br />
-        <input
-          type="text"
-          id="card-bank"
-          name="card-bank"
-          placeholder="Bank"
-        /><br /><br />
-        <input type="submit" id="payment-button" value="Add Payment" />
-      </form>
+  <div class="payment-form" id="form-payment">
+    <form action="">
+      <h2 class="">Enter Your Payment Option</h2>
+      <input style="display:none;" type="text" id="payment-id" name="payment-id" placeholder="Payment ID" /><br />
+      <input type="text" id="card-number" name="card-number" placeholder="Card Number" /><br />
+      <input type="text" id="exp-date" name="exp-date" placeholder="Expiration Date YYYY-MM-DD" /><br />
+      <input type="text" id="sec-code" name="sec-code" placeholder="Security Code" /><br />
+      <input type="text" id="holder-id" name="holder-id" placeholder="Card Holder ID" /><br />
+      <input type="text" id="card-bank" name="card-bank" placeholder="Bank" /><br /><br />
+      <input type="submit" id="payment-button" value="Add Payment" />
+    </form>
 
-      <br />
-      <button class="payment-edit btn btn-success" onclick="updatePayment()">Update</button>
-      <!-- <button class="payment-delete" onclick="deletePayment()">Delete</button> -->
-    </div>
+    <br />
+    <button class="payment-edit btn btn-success" onclick="updatePayment()">Update</button>
+    <!-- <button class="payment-delete" onclick="deletePayment()">Delete</button> -->
+  </div>
 
   <!-- <table class="table" style="margin-top: 50px; width: 70%;">
     <thead class="thead-dark">

@@ -13,7 +13,7 @@
 <body>
     <ul class="topnav">
         <li><a class="active header-logo" href="index.html">InstaDelivery</a></li>
-        <li><a href="cart.html">Shop</a></li>
+        <li><a href="cart.html">Products</a></li>
         <li><a href="orders.html">Orders</a></li>
         <li><a href="payment.html">Payments</a></li>
         <li><a class="current" href="assignments.html">Manage Deliverers</a></li>
@@ -22,11 +22,18 @@
 
     <div class="content-container">
         <h1>Deliverer Assignments</h1>
+        <br>
+        <button onclick="location.href = 'addOrder.html';" class="btn btn-primary">Add Order</button>
         <!-- <div class="search">
             <input type="text" placeholder="Search..">
             <button class="btn btn-success">Go</button>
         </div> -->
     </div>
+
+    <div class="content-container">
+        <h3>List of Orders:</h3>
+    </div>
+
 
 
     <!-- <div class="assginments">
@@ -58,7 +65,7 @@
     <div class="signup-form">
         <form action="" id="my-form-assign" method="post">
             <h2 class="">Register New Deliverer</h2>
-            <input style="display:none;" type="text" id="deliverer-id" name="deliverer-id" placeholder="Deliverer ID"/>
+            <input style="display:none;" type="text" id="deliverer-id" name="deliverer-id" placeholder="Deliverer ID" />
             <input type="text" id="fname" name="fname" placeholder="First Name"><br>
             <input type="text" id="lname" name="lname" placeholder="Last Name"><br><br>
             <input type="submit" id="sign-up-button" value="Add User">

@@ -23,18 +23,24 @@
     <br><br>
 
     <form action="" class="signup-form" id="my-form" method="post">
-        <h2 class="">Add New Product</h2>
-        <input type="text" id="name" name="name" placeholder="Product Name"><br>
-        <input type="text" id="description" name="description" placeholder="Description"><br>
-        <input type="text" id="price" name="price" placeholder="Price"><br>
-        <input type="text" id="quantity" name="quantity" placeholder="Amount"><br><br>
-        <input type="submit" id="sign-up-button" value="Add Product">
+        <h2 class="">Add Product to Order</h2>
+        <br>
+        <label for="order_id">Choose an Order ID:</label>
+        <select id="order_id_options" name="order">
+            <!-- Content goes here -->
+        </select><br>
+        <label for="product_id">Choose an Product:</label>
+        <select id="product_id_options" name="product">
+            <!-- Content goes here -->
+        </select>
+        <br><br><br>
+        <input type="submit" id="sign-up-button" value="Add Product to Order">
     </form>
 
     <footer class="footer">
         <p>Copyright &copy; 2020 InstaDelivery</p>
     </footer>
-    <script src="js/addProduct.js"></script>
+    <script src="js/addProductsOrders.js"></script>
 </body>
 
 </html>
