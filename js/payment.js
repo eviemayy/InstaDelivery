@@ -10,7 +10,7 @@ fetch("https://database-api-2.herokuapp.com/payments").then((res) => {
         temp += "<td>" + payment.cardNumber + "</td>";
         temp += "<td>" + payment.bank + "</td>";
         temp += "<td>" + payment.ccv + "</td>";
-        temp += "<td>" + payment.expirationDate + "</td>";
+        temp += "<td>" + payment.expirationDate.substring(0,10) + "</td>";
         temp += `<td><button class=\"payment-deleting btn btn-danger\" onclick=\"deletePayment(${payment.paymentID})\">Delete</button></td>`;
         temp += `<td><button class=\"payment-updating btn btn-primary\" onclick=\"editPayment(${payment.paymentID})\">Edit</button></td></tr>`;
       });
