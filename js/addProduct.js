@@ -26,6 +26,7 @@ myForm.addEventListener('submit', function (e) {
         response.statusText
         response.headers
         response.url
+        location.href="cart.html";
         return response.text()
     }, function (error) {
         console.log(error);

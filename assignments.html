@@ -22,10 +22,10 @@
 
     <div class="content-container">
         <h1>Deliverer Assignments</h1>
-        <div class="search">
+        <!-- <div class="search">
             <input type="text" placeholder="Search..">
             <button class="btn btn-success">Go</button>
-        </div>
+        </div> -->
     </div>
 
 
@@ -55,15 +55,20 @@
         </div>
     </div>
 
-    <form action="" class="signup-form" id="my-form" method="post">
-        <h2 class="">Register New Deliverer</h2>
-        <input type="text" id="fname" name="fname" placeholder="First Name"><br>
-        <input type="text" id="lname" name="lname" placeholder="Last Name"><br><br>
-        <input type="submit" id="sign-up-button" value="Add User">
-    </form>
+    <div class="signup-form">
+        <form action="" id="my-form-assign" method="post">
+            <h2 class="">Register New Deliverer</h2>
+            <input style="display:none;" type="text" id="deliverer-id" name="deliverer-id" placeholder="Deliverer ID"/>
+            <input type="text" id="fname" name="fname" placeholder="First Name"><br>
+            <input type="text" id="lname" name="lname" placeholder="Last Name"><br><br>
+            <input type="submit" id="sign-up-button" value="Add User">
+        </form>
+        <br />
+        <button class="deliverer-edit btn btn-success" onclick="updateDeliverer()">Update</button>
+    </div>
 
     <h3 style="text-align: center; margin-top: 20px;">Deliverers</h3>
-    <table class="table" style="
+    <table class="table" id="deliverer-table" style="
         margin-top: 20px;
         margin-bottom: 30px;
         width: 70%;
