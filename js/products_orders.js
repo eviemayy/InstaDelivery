@@ -55,7 +55,8 @@ function editOrder(orderID, productID) {
         fetch("https://database-api-2.herokuapp.com/products_orders", {
           method: "PUT",
           body: JSON.stringify({
-            productID: product.value,
+            newProductID: product.value,
+            productID: productID,
             orderID: cardOrderID
           }),
           headers: {
