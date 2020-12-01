@@ -5,7 +5,7 @@ fetch("https://database-api-2.herokuapp.com/products").then((res) => {
         if (productData.length > 0) {
             let temp = "";
             productData.forEach((product) => {
-                temp += '<div class="box">';
+                temp += '<div class="box" id="myProduct">';
                 temp += `<h3 class="shop-title">${product.name}</h3>`;
                 temp += `<span class="price">$${product.price}</span>`;
                 temp += `<p class="description">${product.description}</p>`;
@@ -51,7 +51,7 @@ function deleteProduct(id) {
 }
 
 //---------------EDIT------------------------------------
-function editProduct(productID){
+function editProduct(productID) {
 
     let boxes = document.getElementsByClassName(`box`);
     for (var i = 0; i < boxes.length; i++) {
@@ -66,13 +66,13 @@ function editProduct(productID){
             boxes[i].childNodes[4].setAttribute("style", "display:none;");
             boxes[i].childNodes[5].setAttribute("style", "display:inline;"); // start of span tags
             boxes[i].childNodes[6].setAttribute("style", "display:inline-block;");
-            boxes[i].childNodes[7].setAttribute("style", "display:inline;"); 
+            boxes[i].childNodes[7].setAttribute("style", "display:inline;");
             boxes[i].childNodes[8].setAttribute("style", "display:inline-block;");
-            boxes[i].childNodes[9].setAttribute("style", "display:inline;"); 
+            boxes[i].childNodes[9].setAttribute("style", "display:inline;");
             boxes[i].childNodes[10].setAttribute("style", "display:inline-block;");
-            boxes[i].childNodes[11].setAttribute("style", "display:inline;"); 
+            boxes[i].childNodes[11].setAttribute("style", "display:inline;");
             boxes[i].childNodes[12].setAttribute("style", "display:inline-block;");
-            boxes[i].childNodes[13].setAttribute("style", "display:inline;"); 
+            boxes[i].childNodes[13].setAttribute("style", "display:inline;");
             boxes[i].childNodes[14].setAttribute("style", "display:inline-block;");
             boxes[i].childNodes[15].setAttribute("style", "display:inline-block;");
             boxes[i].childNodes[15].setAttribute("style", "margin-top:5px;");
@@ -91,33 +91,54 @@ function editProduct(productID){
                     name: dataName.value,
                     description: dataDescription.value,
                     price: Number(dataPrice.value),
-                    quantity:  Number(dataQuantity.value)
-            
-                  }
+                    quantity: Number(dataQuantity.value)
 
-                console.log("Testing:",data);
-                fetch("https://database-api-2.herokuapp.com/products", {
-                method: "PUT",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                }).then(
-                function (response) {
-                    response.status; //=> number 100–599
-                    response.statusText; //=> String
-                    response.headers; //=> Headers
-                    response.url; //=> String
-
-                    location.reload();
-                    return response.text();
-                },
-                function (error) {
-                    console.log(error);
                 }
+
+                console.log("Testing:", data);
+                fetch("https://database-api-2.herokuapp.com/products", {
+                    method: "PUT",
+                    body: JSON.stringify(data),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }).then(
+                    function (response) {
+                        response.status; //=> number 100–599
+                        response.statusText; //=> String
+                        response.headers; //=> Headers
+                        response.url; //=> String
+
+                        location.reload();
+                        return response.text();
+                    },
+                    function (error) {
+                        console.log(error);
+                    }
                 );
             });
-        
+
+        }
+    }
+}
+
+//--------------- SEARCH -----------------------------
+
+function productSearch() {
+    var input = document.getElementById('prodSearch');
+    var filter = input.value.toUpperCase();
+    var products = document.getElementById("boxes_1");
+    var prod = products.getElementsByTagName('div');
+    console.log(products);
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < prod.length; i++) {
+        a = prod[i].getElementsByTagName("h3")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            prod[i].style.display = "";
+        } else {
+            prod[i].style.display = "none";
         }
     }
 }
