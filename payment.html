@@ -24,11 +24,11 @@
     <form action="">
       <h2 class="">Enter Your Payment Option</h2>
       <input style="display:none;" type="text" id="payment-id" name="payment-id" placeholder="Payment ID" /><br />
-      <input type="text" id="card-number" name="card-number" placeholder="Card Number" /><br />
-      <input type="text" id="exp-date" name="exp-date" placeholder="Expiration Date YYYY-MM-DD" /><br />
-      <input type="text" id="sec-code" name="sec-code" placeholder="Security Code" /><br />
-      <input type="text" id="holder-id" name="holder-id" placeholder="Card Holder ID" /><br />
-      <input type="text" id="card-bank" name="card-bank" placeholder="Bank" /><br /><br />
+      <input type="number" id="card-number" name="card-number" placeholder="Card Number" required /><br />
+      <input type="date" id="exp-date" name="exp-date" placeholder="Expiration Date YYYY-MM-DD" required/><br />
+      <input type="number" id="sec-code" name="sec-code" placeholder="Security Code" required/><br />
+      <input type="number" id="holder-id" name="holder-id" placeholder="Card Holder ID" required/><br />
+      <input type="text" id="card-bank" name="card-bank" placeholder="Bank" required/><br /><br />
       <input type="submit" id="payment-button" value="Add Payment" />
     </form>
 

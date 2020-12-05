@@ -1,4 +1,5 @@
 //-----------------CUSTOMERS GET REQ------------------------------
+let emails = [];
 fetch("https://database-api-2.herokuapp.com/customers").then((res) => {
   res.text().then((data) => {
     let customerData = JSON.parse(data);
@@ -14,6 +15,7 @@ fetch("https://database-api-2.herokuapp.com/customers").then((res) => {
         temp += "<td>" + customer.address + "</td>";
         temp += `<td><button class="btn btn-primary" id="update-cust" onclick=\"editCustomer(${customer.customerID})\" style="margin: 5px;">Edit</button></td>`;
         temp += `<td><button class="btn btn-danger" onclick="deleteCustomer(\'${customer.email}\',\'${customer.password}\')" style="margin: 5px;">Delete</button></td></tr>`;
+        emails.push(customer.email);
       });
       document.getElementById("customer-data").innerHTML = temp;
     }
@@ -24,6 +26,11 @@ fetch("https://database-api-2.herokuapp.com/customers").then((res) => {
 
 const myForm = document.getElementById('my-form-customers');
 myForm.addEventListener('submit', function (e) {
+
+  if (document.getElementById("customer-id").value !== ""){
+    alert("Cannot Add Customer that already exists")
+    return;
+  }
 
   e.preventDefault();
 
@@ -36,6 +43,11 @@ myForm.addEventListener('submit', function (e) {
   }
 
   console.log(data);
+
+  if(emails.includes(document.getElementById('email').value)){
+    alert("Email Already exists. Choose another");
+    return;
+  }
 
   fetch("https://database-api-2.herokuapp.com/customers", {
     method: "POST",
@@ -91,6 +103,7 @@ function deleteCustomer(eml, pswd) {
 //---------------PUT REQ------------------------
 
 function updatePayment(){
+  // makes actual request
   if(document.getElementById("customer-id").value == ""){
     alert("Customer ID Needed! Press an \"Edit\" button to populate fields.")
     return;
@@ -126,8 +139,7 @@ function updatePayment(){
 
 
 function editCustomer(id) {
-  
-
+  // changes form to allow for request
   console.log("Update", id);
 
   let table = document.getElementById("customer-table");
@@ -152,6 +164,7 @@ function editCustomer(id) {
         let customerID = document.getElementById('customer-id');
         customerID.setAttribute("style", "display:inline");
         customerID.setAttribute("readonly", "readonly");
+        customerID.setAttribute("style", "color:#A52A2A;")
         customerID.value = id;
       }
     }

@@ -24,10 +24,10 @@
 
     <form action="" class="signup-form" id="my-form" method="post">
         <h2 class="">Add New Product</h2>
-        <input type="text" id="name" name="name" placeholder="Product Name"><br>
-        <input type="text" id="description" name="description" placeholder="Description"><br>
-        <input type="text" id="price" name="price" placeholder="Price"><br>
-        <input type="text" id="quantity" name="quantity" placeholder="Amount"><br><br>
+        <input type="text" id="name" name="name" placeholder="Product Name" required><br>
+        <input type="text" id="description" name="description" placeholder="Description" required><br>
+        <input type="number" min="0" max="9999999" id="price" name="price" placeholder="Price"><br>
+        <input type="number" min="0" max="9999999" id="quantity" name="quantity" placeholder="Amount"><br><br>
         <input type="submit" id="sign-up-button" value="Add Product">
     </form>
 

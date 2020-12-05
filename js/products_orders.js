@@ -42,6 +42,7 @@ function editOrder(orderID, productID) {
       cards[i].childNodes[2].setAttribute("style", "display:inline-block;");
       cards[i].childNodes[2].value = cardOrderID;
       cards[i].childNodes[2].setAttribute("readonly", "readonly");
+      cards[i].childNodes[2].setAttribute("style", "color:#A52A2A;");
       cards[i].childNodes[3].setAttribute("style", "display:inline-block;");
       let product = cards[i].childNodes[3];
       cards[i].childNodes[3].value = cardProductID;
