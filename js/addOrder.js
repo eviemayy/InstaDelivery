@@ -20,6 +20,7 @@ fetch("https://database-api-2.herokuapp.com/deliverers").then((res) => {
             deliverers.forEach((deliverer) => {
                 temp += "<option id=\"prod\" value=" + deliverer.delivererID + ">" + deliverer.lastName + "</option>";
             });
+            temp += "<option id=\"prod\"  value=\"NULL\" >NULL</option>";
             document.getElementById("deliverer_id_options").innerHTML = temp;
         }
     });
