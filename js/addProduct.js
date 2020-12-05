@@ -3,6 +3,11 @@
 const myForm = document.getElementById('my-form');
 myForm.addEventListener('submit', function (e) {
 
+    if(document.getElementById('name').value == "" || document.getElementById('description').value == ""){
+        alert("Cannot have empty Name or Description");
+        return;
+    }
+
     e.preventDefault();
 
     let data = {

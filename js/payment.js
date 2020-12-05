@@ -35,6 +35,8 @@ function updatePayment(){
     expirationDate: new Date(document.getElementById("exp-date").value)
   }
 
+  console.log("DATE: ",document.getElementById("exp-date").value);
+
   fetch("https://database-api-2.herokuapp.com/payments", {
     method: "PUT",
     body: JSON.stringify(data),
@@ -81,6 +83,7 @@ function editPayment(id) {
         let paymentID = document.getElementById('payment-id');
         paymentID.setAttribute("style", "display:inline");
         paymentID.setAttribute("readonly", "readonly");
+        paymentID.style.color = "#A52A2A";
         paymentID.value = id;
       }
     }
@@ -115,6 +118,11 @@ function deletePayment(id) {
 //---------------POST-----------------
 const myForm = document.getElementById("form-payment");
 myForm.addEventListener("submit", function (e) {
+  if (document.getElementById("payment-id").value !== ""){
+    alert("Cannot Add Payment that already exists")
+    return;
+  }
+
   e.preventDefault();
 
   let data = {
@@ -126,6 +134,7 @@ myForm.addEventListener("submit", function (e) {
   };
 
   console.log(data);
+  console.log("DATE: ",document.getElementById("exp-date").value);
 
   fetch("https://database-api-2.herokuapp.com/payments", {
     method: "POST",
@@ -140,6 +149,7 @@ myForm.addEventListener("submit", function (e) {
       response.headers; //=> Headers
       response.url; //=> String
 
+      location.reload();
       return response.text();
     },
     function (error) {

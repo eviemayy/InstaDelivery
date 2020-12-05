@@ -22,7 +22,7 @@ CREATE TABLE `products` (
     `productID` INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `description` VARCHAR(255) NOT NULL,
-    `price` DECIMAL,  -- Need to include decimal places
+    `price` DECIMAL(10,2),  -- Need to include decimal places
     `quantity` INT,
     PRIMARY KEY(`productID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -37,10 +37,11 @@ CREATE TABLE `deliverers` (
 CREATE TABLE `payments` (
     `paymentID` INT AUTO_INCREMENT NOT NULL,
     `customerID` INT NOT NULL,   -- Does not have to be UNIQUE
-    `cardNumber` INT(19),
+    `cardNumber` BIGINT(19) NOT NULL,
     `bank` VARCHAR(255) NOT NULL,
     `ccv` INT NOT NULL,
     `expirationDate` DATE NOT NULL,
+    UNIQUE (`customerID`),
     PRIMARY KEY (`paymentID`),
     FOREIGN KEY (`customerID`) REFERENCES `customers`(`customerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -17,13 +17,13 @@ fetch("https://database-api-2.herokuapp.com/orders").then((res) => {
         temp += `<p><b>Arrival Time:</b> ${order.arrivalTime}</p>`;
         temp += `<button class="btn btn-primary" onclick=\"editOrder(${order.orderID})\" style="margin: 5px;">Edit Order</button>`;
         temp += `<button class="btn btn-danger" onclick="deleteOrder(\'${order.orderID}\')">Delete</button>`;
-        temp += `<span style="display:none;">Order ID: </span><input type="text" id="order-id" name="order-id" placeholder="Order ID" style="display:none;">`;
-        temp += `<span style="display:none;">Customer ID: </span><input type="text" id="customer-ids" name="customer-ids" placeholder="Customer ID" style="display:none;">`;
-        temp += `<span style="display:none;">Deliverer ID: </span><input type="text" id="deliverer-ids" name="deliverer-ids" placeholder="Deliverer ID" style="display:none;">`;
-        temp += `<span style="display:none;">Date Ordered: </span><input type="text" id="order-date" name="order-date" placeholder="Date Ordered" style="display:none;">`;
-        temp += `<span style="display:none;">Delivery Status: </span><input type="text" id="status" name="status" placeholder="Delivery Status" style="display:none;">`;
-        temp += `<span style="display:none;">Departure Time: </span><input type="text" id="depart-time" name="depart-time" placeholder="Departure Time" style="display:none;">`;
-        temp += `<span style="display:none;">Arrival Time: </span><input type="text" id="arrive-time" name="arrive-time" placeholder="Arrival Time" style="display:none;"><br style="display:none;">`;
+        temp += `<span style="display:none;">Order ID: </span><input type="number" id="order-id" name="order-id" placeholder="Order ID" style="display:none;">`;
+        temp += `<span style="display:none;">Customer ID: </span><input type="number" id="customer-ids" name="customer-ids" placeholder="Customer ID" style="display:none;">`;
+        temp += `<span style="display:none;">Deliverer ID: </span><input type="number" id="deliverer-ids" name="deliverer-ids" placeholder="Deliverer ID" style="display:none;">`;
+        temp += `<span style="display:none;">Date Ordered: </span><input type="date" id="order-date" name="order-date" placeholder="Date Ordered" style="display:none;">`;
+        temp += `<span style="display:none;">Delivery Status: </span><input type="text" id="delivery-status" name="status" placeholder="Delivery Status" style="display:none;">`;
+        temp += `<span style="display:none;">Departure Time: </span><input type="time" id="depart-time" name="depart-time" placeholder="Departure Time" style="display:none;">`;
+        temp += `<span style="display:none;">Arrival Time: </span><input type="time" id="arrive-time" name="arrive-time" placeholder="Arrival Time" style="display:none;"><br style="display:none;">`;
         temp += `<button class="btn btn-primary" style="margin: 5px; display:none;">Update</button></div></div>`;
       });
       document.getElementById("all-orders").innerHTML = temp;
@@ -50,10 +50,15 @@ fetch("https://database-api-2.herokuapp.com/deliverers").then((res) => {
   });
 });
 
-//----------------- POST REQ ------------------------------
+//----------------- POST REQ DELIVERERS------------------------------
 
 const myForm = document.getElementById('my-form-assign');
 myForm.addEventListener('submit', function (e) {
+
+  if (document.getElementById("deliverer-id").value !== ""){
+    alert("Cannot Add Deliverer that already exists")
+    return;
+  }
 
   e.preventDefault();
 
@@ -191,6 +196,7 @@ function editDeliverer(id){
         let delivererID = document.getElementById('deliverer-id');
         delivererID.setAttribute("style", "display:inline");
         delivererID.setAttribute("readonly", "readonly");
+        delivererID.setAttribute("style", "color:#A52A2A;");
         delivererID.value = id;
       }
     }
@@ -232,13 +238,15 @@ function editOrder(orderID){
       cards[i].childNodes[6].setAttribute("style", "display:none;");//Edit button
       cards[i].childNodes[7].setAttribute("style", "display:none;");//button
       cards[i].childNodes[8].setAttribute("style", "display:inline;"); // start of span tags
-      cards[i].childNodes[9].setAttribute("style", "display:inline-block;");
+      cards[i].childNodes[9].setAttribute("style", "display:block;"); 
+      cards[i].childNodes[9].setAttribute("style", "color:#A52A2A;");
       cards[i].childNodes[10].setAttribute("style", "display:inline;");
       cards[i].childNodes[11].setAttribute("style", "display:inline-block;");
       cards[i].childNodes[12].setAttribute("style", "display:inline;");
       cards[i].childNodes[13].setAttribute("style", "display:inline-block;");
       cards[i].childNodes[14].setAttribute("style", "display:inline;");
       cards[i].childNodes[15].setAttribute("style", "display:inline-block;");
+      cards[i].childNodes[15].disabled = true;
       cards[i].childNodes[16].setAttribute("style", "display:inline;");
       cards[i].childNodes[17].setAttribute("style", "display:inline-block;");
       cards[i].childNodes[18].setAttribute("style", "display:inline;");

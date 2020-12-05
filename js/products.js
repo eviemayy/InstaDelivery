@@ -13,10 +13,10 @@ fetch("https://database-api-2.herokuapp.com/products").then((res) => {
                 temp += `<button style="margin-bottom: 5px;" class="btn btn-primary" onclick="editProduct(${product.productID})">Edit Product</button>`;
                 temp += `<button class="btn btn-danger" onclick="deleteProduct(\'${product.productID}\')">Delete Product</button>`;
                 temp += `<span style="display:none;">Product ID: </span><input type="text" id="id" name="id" placeholder="Product ID" style="display:none;" value="${product.productID}" readonly="readonly">`;
-                temp += `<span style="display:none;">Name: </span><input type="text" id="item-name" name="item-name" placeholder="Name" style="display:none;" value="${product.name}">`;
-                temp += `<span style="display:none;">Description: </span><input type="text" id="item-name" name="item-name" placeholder="Name" style="display:none;" value="${product.description}">`;
-                temp += `<span style="display:none;">Price: </span><input type="text" id="item-name" name="item-name" placeholder="Name" style="display:none;" value="${product.price}">`;
-                temp += `<span style="display:none;">Quantity: </span><input type="text" id="item-name" name="item-name" placeholder="Name" style="display:none;" value="${product.quantity}">`;
+                temp += `<span style="display:none;">Name: </span><input type="text" id="item-name" name="item-name" placeholder="Name" style="display:none;" value="${product.name}" required>`;
+                temp += `<span style="display:none;">Description: </span><input type="text" id="item-name" name="item-name" placeholder="Description" style="display:none;" value="${product.description}" required>`;
+                temp += `<span style="display:none;">Price: </span><input type="number" min="0" max="9999999" id="item-name" name="item-name" placeholder="Price" style="display:none;" value="${product.price}">`;
+                temp += `<span style="display:none;">Quantity: </span><input type="number" min="0" max="9999999" id="item-name" name="item-name" placeholder="Quantity" style="display:none;" value="${product.quantity}">`;
                 temp += `<button class="btn btn-primary" style="display:none;">Update Product</button>`;
                 temp += '</div>';
             });
@@ -64,8 +64,9 @@ function editProduct(productID) {
             boxes[i].childNodes[2].setAttribute("style", "display:none;");
             boxes[i].childNodes[3].setAttribute("style", "display:none;");
             boxes[i].childNodes[4].setAttribute("style", "display:none;");
-            boxes[i].childNodes[5].setAttribute("style", "display:inline;"); // start of span tags
+            boxes[i].childNodes[5].setAttribute("style", "display:inline;"); // start of span tags 
             boxes[i].childNodes[6].setAttribute("style", "display:inline-block;");
+            boxes[i].childNodes[6].setAttribute("style", "color:#A52A2A;");
             boxes[i].childNodes[7].setAttribute("style", "display:inline;");
             boxes[i].childNodes[8].setAttribute("style", "display:inline-block;");
             boxes[i].childNodes[9].setAttribute("style", "display:inline;");
@@ -86,16 +87,22 @@ function editProduct(productID) {
 
             boxes[i].childNodes[15].addEventListener("click", function () {
 
+                if(dataName.value == "" || dataDescription.value == ""){
+                    alert("Cannot have empty Name or Description");
+                    return;
+                }
+
                 let data = {
                     productID: productID,
                     name: dataName.value,
                     description: dataDescription.value,
-                    price: Number(dataPrice.value),
+                    price: Number(dataPrice.value).toFixed(2),
                     quantity: Number(dataQuantity.value)
 
                 }
 
                 console.log("Testing:", data);
+                console.log("Price:", Number(dataPrice.value).toFixed(2));
                 fetch("https://database-api-2.herokuapp.com/products", {
                     method: "PUT",
                     body: JSON.stringify(data),
