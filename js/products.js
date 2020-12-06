@@ -65,21 +65,21 @@ function editProduct(productID) {
             boxes[i].childNodes[3].setAttribute("style", "display:none;");
             boxes[i].childNodes[4].setAttribute("style", "display:none;");
             boxes[i].childNodes[5].setAttribute("style", "display:inline;"); // start of span tags 
-            boxes[i].childNodes[6].setAttribute("style", "display:inline-block;");
+            boxes[i].childNodes[6].setAttribute("style", "display:inline-block;"); //productID input
             boxes[i].childNodes[6].setAttribute("style", "color:#A52A2A;");
-            boxes[i].childNodes[7].setAttribute("style", "display:inline;");
-            boxes[i].childNodes[8].setAttribute("style", "display:inline-block;");
+            boxes[i].childNodes[7].setAttribute("style", "display:inline;"); 
+            boxes[i].childNodes[8].setAttribute("style", "display:inline-block;"); //name input
             boxes[i].childNodes[9].setAttribute("style", "display:inline;");
-            boxes[i].childNodes[10].setAttribute("style", "display:inline-block;");
+            boxes[i].childNodes[10].setAttribute("style", "display:inline-block;"); //description input
             boxes[i].childNodes[11].setAttribute("style", "display:inline;");
-            boxes[i].childNodes[12].setAttribute("style", "display:inline-block;");
+            boxes[i].childNodes[12].setAttribute("style", "display:inline-block;"); //price input
             boxes[i].childNodes[13].setAttribute("style", "display:inline;");
-            boxes[i].childNodes[14].setAttribute("style", "display:inline-block;");
-            boxes[i].childNodes[15].setAttribute("style", "display:inline-block;");
+            boxes[i].childNodes[14].setAttribute("style", "display:inline-block;"); //quantity input
+            boxes[i].childNodes[15].setAttribute("style", "display:inline-block;"); //update button
             boxes[i].childNodes[15].setAttribute("style", "margin-top:5px;");
 
             //For data population for PUT request
-            let dataProductID = boxes[i].childNodes[6];
+            let dataProductID = boxes[i].childNodes[6]; //not used
             let dataName = boxes[i].childNodes[8];
             let dataDescription = boxes[i].childNodes[10];
             let dataPrice = boxes[i].childNodes[12];
@@ -102,7 +102,6 @@ function editProduct(productID) {
                 }
 
                 console.log("Testing:", data);
-                console.log("Price:", Number(dataPrice.value).toFixed(2));
                 fetch("https://database-api-2.herokuapp.com/products", {
                     method: "PUT",
                     body: JSON.stringify(data),

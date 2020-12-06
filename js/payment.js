@@ -81,19 +81,17 @@ function updatePayment(){
 }
 
 function editPayment(id) {
-  
+  // To populate payment form for updating
 
   console.log("Update", id);
 
   let table = document.getElementById("payment-table");
   for (var i = 1, row; (row = table.rows[i]); i++) {
-    //iterate through rows
-    //rows would be accessed using the "row" variable assigned in the for loop
+    //loop through rows
     for (var j = 0, col; (col = row.cells[j]); j++) {
       let currentRow = row;
       
-      //iterate through columns
-      //columns would be accessed using the "col" variable assigned in the for loop
+      //loop through columns
       if (col.innerHTML == id) {
         console.log(currentRow);
         console.log("Security Code", currentRow.cells[4].innerHTML);
@@ -115,6 +113,7 @@ function editPayment(id) {
   }
 }
 
+//-------------DELETE-------------------------------
 function deletePayment(id) {
   console.log("Delete", id);
 

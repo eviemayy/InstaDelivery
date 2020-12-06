@@ -144,18 +144,17 @@ function editCustomer(id) {
 
   let table = document.getElementById("customer-table");
   for (var i = 1, row; (row = table.rows[i]); i++) {
-    //iterate through rows
-    //rows would be accessed using the "row" variable assigned in the for loop
+    //loop through rows
     for (var j = 0, col; (col = row.cells[j]); j++) {
       let currentRow = row;
       
-      //iterate through columns
-      //columns would be accessed using the "col" variable assigned in the for loop
+      //loop through columns
       if (col.innerHTML == id) {
         console.log(currentRow);
         console.log("Password", currentRow.cells[4].innerHTML);
         console.log("Checking", col.innerHTML);
         
+        //take values from table and put it in the signup form
         document.getElementById('psswrd').value = row.cells[4].innerHTML;
         document.getElementById('lname').value = row.cells[2].innerHTML;
         document.getElementById('address').value = row.cells[5].innerHTML;
