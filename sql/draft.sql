@@ -213,3 +213,47 @@ ADD CONSTRAINT `products_orders_ibfk_2`
 FOREIGN KEY (`orderID`) REFERENCES `orders`(`orderID`);
 
 ALTER TABLE `products` MODIFY `price` decimal(10,2) null;
+
+-- Fix deleting ability
+ALTER TABLE `orders` 
+DROP FOREIGN KEY `orders_ibfk_1`;
+ALTER TABLE `orders` 
+ADD CONSTRAINT `orders_ibfk_1`
+  FOREIGN KEY (`customerID`)
+  REFERENCES `customers`(`customerID`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+ALTER TABLE `orders` 
+DROP FOREIGN KEY `orders_ibfk_2`;
+ALTER TABLE `orders` 
+ADD CONSTRAINT `orders_ibfk_2`
+  FOREIGN KEY (`delivererID`)
+  REFERENCES `deliverers`(`delivererID`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+
+ALTER TABLE `payments` 
+DROP FOREIGN KEY `payments_ibfk_1`;
+ALTER TABLE `payments` 
+ADD CONSTRAINT `payments_ibfk_1`
+  FOREIGN KEY (`customerID`)
+  REFERENCES `customers`(`customerID`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+ALTER TABLE `products_orders` DROP CONSTRAINT `products_orders_ibfk_1`;
+ALTER TABLE `products_orders` DROP CONSTRAINT `products_orders_ibfk_2`;
+
+ALTER TABLE `products_orders`
+ADD CONSTRAINT `products_orders_ibfk_1`
+FOREIGN KEY (`productID`) REFERENCES `products`(`productID`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE `products_orders`
+ADD CONSTRAINT `products_orders_ibfk_2`
+FOREIGN KEY (`orderID`) REFERENCES `orders`(`orderID`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;

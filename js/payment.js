@@ -181,7 +181,7 @@ myForm.addEventListener("submit", function (e) {
       response.headers; //=> Headers
       response.url; //=> String
 
-      //location.reload();
+      location.reload();
       return response.text();
     },
     function (error) {

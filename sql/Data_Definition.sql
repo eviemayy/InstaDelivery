@@ -43,7 +43,7 @@ CREATE TABLE `payments` (
     `expirationDate` DATE NOT NULL,
     UNIQUE (`customerID`),
     PRIMARY KEY (`paymentID`),
-    FOREIGN KEY (`customerID`) REFERENCES `customers`(`customerID`)
+    FOREIGN KEY (`customerID`) REFERENCES `customers`(`customerID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `orders` (
@@ -55,13 +55,13 @@ CREATE TABLE `orders` (
     `departureTime` TIME,
     `arrivalTime` TIME,
     PRIMARY KEY (`orderID`),
-    FOREIGN KEY (`customerID`) REFERENCES customers(`customerID`),
-    FOREIGN KEY (`delivererID`) REFERENCES deliverers(`delivererID`)
+    FOREIGN KEY (`customerID`) REFERENCES customers(`customerID`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`delivererID`) REFERENCES deliverers(`delivererID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `products_orders` (
     `productID` INT NOT NULL,
     `orderID` INT NOT NULL,   
-    FOREIGN KEY (`productID`) REFERENCES `products`(`productID`),
-    FOREIGN KEY (`orderID`) REFERENCES `orders`(`orderID`)
+    FOREIGN KEY (`productID`) REFERENCES `products`(`productID`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`orderID`) REFERENCES `orders`(`orderID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

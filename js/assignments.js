@@ -136,6 +136,7 @@ function deleteOrder(id) {
       response.url; //=> String
 
 
+      location.reload();
       return response.text();
     },
     function (error) {
