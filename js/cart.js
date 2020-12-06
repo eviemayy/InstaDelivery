@@ -1,4 +1,5 @@
-// Not using code on this page
+// Not using code on this page at all
+// Cart Implementation: https://github.com/FavourAmayo/osu-cs290-sp2020/blob/master/CS%20290%20Final%20Project/js/cart.js
 if (document.readyState == "loading") {
   document.addEventListener("DOMContentLoaded", ready);
 } else {
