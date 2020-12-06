@@ -1,3 +1,5 @@
+//-----------GET PAYMENTS-----------------------
+let paymentCustomerIDs_array = []
 fetch("https://database-api-2.herokuapp.com/payments").then((res) => {
   res.text().then((data) => {
     let paymentData = JSON.parse(data);
@@ -13,12 +15,29 @@ fetch("https://database-api-2.herokuapp.com/payments").then((res) => {
         temp += "<td>" + payment.expirationDate.substring(0,10) + "</td>";
         temp += `<td><button class=\"payment-deleting btn btn-danger\" onclick=\"deletePayment(${payment.paymentID})\">Delete</button></td>`;
         temp += `<td><button class=\"payment-updating btn btn-primary\" onclick=\"editPayment(${payment.paymentID})\">Edit</button></td></tr>`;
+        paymentCustomerIDs_array.push(payment.customerID);
       });
       document.getElementById("data").innerHTML = temp;
     }
   });
 });
 
+//---------GET CUSTOMER IDS FOR DROPDOWN-----------------
+fetch("https://database-api-2.herokuapp.com/customers").then((res) => {
+    res.text().then((data) => {
+        let customers = JSON.parse(data);
+        if (customers.length > 0) {
+            let temp = "";
+            customers.forEach((customer) => {
+                temp += "<option id=\"cust\" value=" + customer.customerID + ">" + customer.lastName + "</option>";
+            });
+            document.getElementById("holder_id_options").innerHTML = temp;
+        }
+    });
+});
+
+
+//----------PUT REQUEST----------------------------
 function updatePayment(){
 
   if(document.getElementById("payment-id").value == ""){
@@ -26,9 +45,14 @@ function updatePayment(){
     return;
   }
 
+  if(!paymentCustomerIDs_array.includes(Number(document.getElementById("holder_id_options").value))){
+    alert("Customer does not have payment option. Try Again");
+    return;
+  }
+
   let data = {
     paymentID: document.getElementById("payment-id").value,
-    customerID: document.getElementById("holder-id").value,
+    customerID: document.getElementById("holder_id_options").value,
     cardNumber: document.getElementById("card-number").value,
     bank: document.getElementById("card-bank").value,
     ccv: document.getElementById("sec-code").value,
@@ -78,8 +102,9 @@ function editPayment(id) {
         document.getElementById('sec-code').value = row.cells[4].innerHTML;
         document.getElementById('card-number').value = row.cells[2].innerHTML;
         document.getElementById('exp-date').value = row.cells[5].innerHTML;
-        document.getElementById('holder-id').value = row.cells[1].innerHTML;
+        // document.getElementById('holder-id').value = row.cells[1].innerHTML;
         document.getElementById('card-bank').value = row.cells[3].innerHTML;
+        document.getElementById("holder_id_options").value = row.cells[1].innerHTML;
         let paymentID = document.getElementById('payment-id');
         paymentID.setAttribute("style", "display:inline");
         paymentID.setAttribute("readonly", "readonly");
@@ -123,10 +148,18 @@ myForm.addEventListener("submit", function (e) {
     return;
   }
 
+  console.log("Dropdown: ", document.getElementById("holder_id_options").value);
+  console.log("Customer IDs:", paymentCustomerIDs_array)
+
+  if(paymentCustomerIDs_array.includes(Number(document.getElementById("holder_id_options").value))){
+    alert("Customer already has payment option.");
+    return;
+  }
+
   e.preventDefault();
 
   let data = {
-    customerID: document.getElementById("holder-id").value,
+    customerID: document.getElementById("holder_id_options").value,
     cardNumber: document.getElementById("card-number").value,
     bank: document.getElementById("card-bank").value,
     ccv: document.getElementById("sec-code").value,
@@ -149,7 +182,7 @@ myForm.addEventListener("submit", function (e) {
       response.headers; //=> Headers
       response.url; //=> String
 
-      location.reload();
+      //location.reload();
       return response.text();
     },
     function (error) {
