@@ -218,7 +218,7 @@ function editOrder(orderID, random){
         if (customers.length > 0) {
             let temp = "";
             customers.forEach((customer) => {
-                temp += "<option id=\"cust\" value=" + customer.customerID + ">" + customer.customerID + "</option>";
+                temp += "<option id=\"cust\" value=" + customer.customerID + ">" + customer.firstName + "</option>";
             });
             document.getElementById(`cust_id_options_${random}`).innerHTML = temp;
         }
@@ -235,7 +235,7 @@ function editOrder(orderID, random){
         if (deliverers.length > 0) {
             let temp = "";
             deliverers.forEach((deliverer) => {
-                temp += "<option id=\"del\" value=" + deliverer.delivererID + ">" + deliverer.delivererID + "</option>";
+                temp += "<option id=\"del\" value=" + deliverer.delivererID + ">" + deliverer.firstName + "</option>";
             });
             temp += "<option id=\"del\"  value=\"NULL\" >NULL</option>";
             document.getElementById(`del_id_options_${random}`).innerHTML = temp;
