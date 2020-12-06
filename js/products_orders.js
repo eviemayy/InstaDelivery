@@ -1,3 +1,4 @@
+//--------------GET PRODUCTS_ORDERS-----------------------
 fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
   res.text().then((data) => {
     let product_orderData = JSON.parse(data);
@@ -30,7 +31,7 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
 function editOrder(orderID, productID, random) {
 
   console.log("Random:", random);
-  //-------GET PRODUCT IDS----------------------------
+  //-------GET PRODUCT IDS FOR DROPDOWN----------------------------
   fetch("https://database-api-2.herokuapp.com/products").then((res) => {
     res.text().then((data) => {
         let productData = JSON.parse(data);
@@ -46,6 +47,7 @@ function editOrder(orderID, productID, random) {
 
   //-------------------------------------------------
 
+
   let cards = document.getElementsByClassName(`card-body`);
   for (var i = 0; i < cards.length; i++) {
     console.log("Checking: ", cards[i].childNodes);
@@ -58,19 +60,18 @@ function editOrder(orderID, productID, random) {
     if (cardOrderID == orderID && cardProductID == productID) {
       cards[i].childNodes[0].setAttribute("style", "display:none;");
       cards[i].childNodes[1].setAttribute("style", "display:none;");
-      cards[i].childNodes[5].setAttribute("style", "display:none;");
-      cards[i].childNodes[6].setAttribute("style", "display:none;");
-      cards[i].childNodes[7].setAttribute("style", "display:inline-block;");
-      cards[i].childNodes[2].setAttribute("style", "display:inline-block;");
+      cards[i].childNodes[5].setAttribute("style", "display:none;"); //Edit button
+      cards[i].childNodes[6].setAttribute("style", "display:none;"); //Delete button
+      cards[i].childNodes[7].setAttribute("style", "display:inline-block;"); //Update button
+      cards[i].childNodes[2].setAttribute("style", "display:inline-block;"); //orderID input
       cards[i].childNodes[2].value = cardOrderID;
       cards[i].childNodes[2].setAttribute("readonly", "readonly");
       cards[i].childNodes[2].setAttribute("style", "color:#A52A2A;");
-      cards[i].childNodes[3].setAttribute("style", "display:inline-block;");
+      cards[i].childNodes[3].setAttribute("style", "display:inline-block;"); //productID dropdown
       let product = cards[i].childNodes[3];
       //cards[i].childNodes[3].value = cardProductID;
       setTimeout(function(){ product.value = cardProductID; }, 300); // wait to put value in dropdown
-      console.log("I want to check:", cards[i].childNodes[3].value);
-      cards[i].childNodes[4].setAttribute("style", "display:inline-block;");
+      cards[i].childNodes[4].setAttribute("style", "display:inline-block;"); //br tag
 
       // Update button to actually update values
       cards[i].childNodes[7].addEventListener("click", function () {
@@ -105,6 +106,8 @@ function editOrder(orderID, productID, random) {
     }
   }
 }
+
+
 //----------------- DELETE ------------------------------
 
 function deleteProdOrd(order, prod) {
