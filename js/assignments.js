@@ -6,6 +6,7 @@ fetch("https://database-api-2.herokuapp.com/orders").then((res) => {
     if (orderData.length > 0) {
       let temp = "";
       orderData.forEach((order) => {
+        let random = Math.floor(Math.random() * 10000000);
         temp += '<div class="card" style="margin-top: 20px;">';
         temp += `<h5 class="card-header">Order ${order.orderID}</h5>`;
         temp += `<div class="card-body">`;
@@ -15,15 +16,17 @@ fetch("https://database-api-2.herokuapp.com/orders").then((res) => {
         temp += `<p><b>Delivery Status:</b> ${order.deliveryStatus}</p>`;
         temp += `<p><b>Departure Time:</b> ${order.departureTime}</p>`;
         temp += `<p><b>Arrival Time:</b> ${order.arrivalTime}</p>`;
-        temp += `<button class="btn btn-primary" onclick=\"editOrder(${order.orderID})\" style="margin: 5px;">Edit Order</button>`;
+        temp += `<button class="btn btn-primary" onclick=\"editOrder(${order.orderID}, ${random})\" style="margin: 5px;">Edit Order</button>`;
         temp += `<button class="btn btn-danger" onclick="deleteOrder(\'${order.orderID}\')">Delete</button>`;
         temp += `<span style="display:none;">Order ID: </span><input type="number" id="order-id" name="order-id" placeholder="Order ID" style="display:none;">`;
-        temp += `<span style="display:none;">Customer ID: </span><input type="number" id="customer-ids" name="customer-ids" placeholder="Customer ID" style="display:none;">`;
-        temp += `<span style="display:none;">Deliverer ID: </span><input type="number" id="deliverer-ids" name="deliverer-ids" placeholder="Deliverer ID" style="display:none;">`;
-        temp += `<span style="display:none;">Date Ordered: </span><input type="date" id="order-date" name="order-date" placeholder="Date Ordered" style="display:none;">`;
-        temp += `<span style="display:none;">Delivery Status: </span><input type="text" id="delivery-status" name="status" placeholder="Delivery Status" style="display:none;">`;
-        temp += `<span style="display:none;">Departure Time: </span><input type="time" id="depart-time" name="depart-time" placeholder="Departure Time" style="display:none;">`;
-        temp += `<span style="display:none;">Arrival Time: </span><input type="time" id="arrive-time" name="arrive-time" placeholder="Arrival Time" style="display:none;"><br style="display:none;">`;
+        // temp += `<span style="display:none;">Customer ID: </span><input type="number" id="customer-ids" name="customer-ids" placeholder="Customer ID" style="display:none;">`;
+        temp += `<span style="display:none;"> Customer ID: </span><select id="cust_id_options_${random}" name="cust-id-2" style="display:none;"></select>`;
+        // temp += `<span style="display:none;">Deliverer ID: </span><input type="number" id="deliverer-ids" name="deliverer-ids" placeholder="Deliverer ID" style="display:none;">`;
+        temp += `<span style="display:none;"> Deliverer ID: </span><select id="del_id_options_${random}" name="del-id-2" style="display:none;"></select>`;
+        temp += `<span style="display:none;"> Date Ordered: </span><input type="date" id="order-date" name="order-date" placeholder="Date Ordered" style="display:none;">`;
+        temp += `<span style="display:none;"> Delivery Status: </span><input type="text" id="delivery-status" name="status" placeholder="Delivery Status" style="display:none;">`;
+        temp += `<span style="display:none;"> Departure Time: </span><input type="time" id="depart-time" name="depart-time" placeholder="Departure Time" style="display:none;">`;
+        temp += `<span style="display:none;"> Arrival Time: </span><input type="time" id="arrive-time" name="arrive-time" placeholder="Arrival Time" style="display:none;"><br style="display:none;">`;
         temp += `<button class="btn btn-primary" style="margin: 5px; display:none;">Update</button></div></div>`;
       });
       document.getElementById("all-orders").innerHTML = temp;
@@ -206,7 +209,41 @@ function editDeliverer(id){
 
 
 //-----------UPDATE ORDERS---------------------
-function editOrder(orderID){
+function editOrder(orderID, random){
+
+  //------------For Customer ID Dropdown---------------
+
+  fetch("https://database-api-2.herokuapp.com/customers").then((res) => {
+    res.text().then((data) => {
+        let customers = JSON.parse(data);
+        if (customers.length > 0) {
+            let temp = "";
+            customers.forEach((customer) => {
+                temp += "<option id=\"cust\" value=" + customer.customerID + ">" + customer.customerID + "</option>";
+            });
+            document.getElementById(`cust_id_options_${random}`).innerHTML = temp;
+        }
+    });
+});
+  //-----------------------------------------------------
+
+
+  //------------For Deliverer ID Dropdown---------------
+
+  fetch("https://database-api-2.herokuapp.com/deliverers").then((res) => {
+    res.text().then((data) => {
+        let deliverers = JSON.parse(data);
+        if (deliverers.length > 0) {
+            let temp = "";
+            deliverers.forEach((deliverer) => {
+                temp += "<option id=\"del\" value=" + deliverer.delivererID + ">" + deliverer.delivererID + "</option>";
+            });
+            temp += "<option id=\"del\"  value=\"NULL\" >NULL</option>";
+            document.getElementById(`del_id_options_${random}`).innerHTML = temp;
+          }
+      });
+  });
+  //-----------------------------------------------------
 
   let cards = document.getElementsByClassName(`card-body`);
   for (var i = 0; i < cards.length; i++) {
@@ -242,8 +279,13 @@ function editOrder(orderID){
       cards[i].childNodes[9].setAttribute("style", "color:#A52A2A;");
       cards[i].childNodes[10].setAttribute("style", "display:inline;");
       cards[i].childNodes[11].setAttribute("style", "display:inline-block;");
+      let childCustomerID = cards[i].childNodes[11];
+      setTimeout(function(){ childCustomerID.value = cardCustomerID; }, 300); // wait to put value in dropdown
+      childCustomerID.disabled = true;
       cards[i].childNodes[12].setAttribute("style", "display:inline;");
       cards[i].childNodes[13].setAttribute("style", "display:inline-block;");
+      let childDelivererID = cards[i].childNodes[13];
+      setTimeout(function(){ childDelivererID.value = cardDelivererID; }, 300); // wait to put value in dropdown
       cards[i].childNodes[14].setAttribute("style", "display:inline;");
       cards[i].childNodes[15].setAttribute("style", "display:inline-block;");
       cards[i].childNodes[15].disabled = true;
@@ -258,8 +300,8 @@ function editOrder(orderID){
       // Changing values of inputs
       cards[i].childNodes[9].value = cardOrderID;
       cards[i].childNodes[9].setAttribute("readonly", "readonly");
-      cards[i].childNodes[11].value = cardCustomerID;
-      cards[i].childNodes[13].value = cardDelivererID;
+      cards[i].childNodes[11].value = cardCustomerID; //not working
+      cards[i].childNodes[13].value = cardDelivererID; //not working
       cards[i].childNodes[15].value = cardDateOrdered;
       cards[i].childNodes[17].value = cardDeliveryStatus;
       cards[i].childNodes[19].value = cardDepartTime;
@@ -277,7 +319,7 @@ function editOrder(orderID){
         let data = {
           orderID: cardOrderID,
           // customerID: cards[i].childNodes[11].value,
-          delivererID: dataDelivererID.value,
+          delivererID: dataDelivererID.value == "NULL" ? null : dataDelivererID.value,
           // dateOrdered: cards[i].childNodes[15].value,
           deliveryStatus: dataDeliveryStatus.value,
           departureTime:  dataDepartureTime.value,

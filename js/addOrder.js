@@ -35,7 +35,7 @@ myForm.addEventListener('submit', function (e) {
     e.preventDefault();
     let data = {
         customerID: document.getElementById('customer_id_options').value,
-        delivererID: document.getElementById('deliverer_id_options').value,
+        delivererID: document.getElementById('deliverer_id_options').value == "NULL" ? null : document.getElementById('deliverer_id_options').value,
         dateOrdered: document.getElementById('date').value,
         deliveryStatus: document.getElementById('status').value,
         departureTime: document.getElementById('dTime').value,
