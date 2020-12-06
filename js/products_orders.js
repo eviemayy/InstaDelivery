@@ -5,6 +5,7 @@ fetch("https://database-api-2.herokuapp.com/products_orders").then((res) => {
     console.log(product_orderData);
     if (product_orderData.length > 0) {
       let temp = "";
+      let productName = null;
       product_orderData.forEach((product_order) => {
         let random = Math.floor(Math.random() * 10000000);
         temp += '<div class="card" style="margin-top: 20px;">';
@@ -38,7 +39,7 @@ function editOrder(orderID, productID, random) {
         if (productData.length > 0) {
             let temp = "";
             productData.forEach((product) => {
-                temp += "<option id=\"prod\" value=" + product.productID + ">" + product.productID + "</option>";
+                temp += "<option id=\"prod\" value=" + product.productID + ">" + product.name + "</option>";
             });
             document.getElementById(`prod_id_options_${orderID}_${productID}_${random}`).innerHTML = temp;
         }
